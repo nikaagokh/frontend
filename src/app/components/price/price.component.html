@@ -1,0 +1,56 @@
+<div class="price-container">
+    <div class="price-wrapper">
+        <div class="price-flex">
+            <div class="price">
+                პროდუქტის ღირებულება
+                <span>{{priceObj.oldPrice}} ₾</span>
+            </div>
+            <div class="price sale">
+                ფასდაკლება: 
+                <span>-{{priceObj.oldPrice - priceObj.newPrice}} ₾</span>
+            </div>
+            
+            <div class="price total">
+                საბოლოო ღირებულება:
+                <span>{{priceObj.newPrice}} ₾</span>
+            </div>
+        </div>
+        <div class="delivery" *ngIf="type === 0">
+            <mat-icon class="icon-delivery">local_shipping</mat-icon>
+             მიტანა +15 ₾
+        </div>
+        <div class="delivery">
+            <mat-icon> phone</mat-icon>
+            558 121-999
+        </div>
+        <!--
+        <div class="add-wrapper">
+                            
+            <button mat-button class="minus-button" (click)="reduceQuantity()">
+                <span class="add">-</span>
+            </button>
+            <div class="number-button">
+                <div class="numb">
+                    {{number}} შეკვრა
+                </div>
+            </div>
+            <button mat-button class="plus-button" (click)="addQuantity()">
+                <span class="add">+</span>
+            </button>
+
+        
+    </div>
+    -->
+        <div class="button-actions"> 
+           <button mat-button class="actions category" routerLink="/">შოპინგი</button>
+           <button mat-button class="buy-button actions" (click)="addCart()">
+            კალათაში
+           </button>
+       
+  
+
+
+</div>
+    </div>
+</div>
+

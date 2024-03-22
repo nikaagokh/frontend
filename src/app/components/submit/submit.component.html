@@ -1,0 +1,33 @@
+<div class="logout-container">
+    
+    <div class="header-auth">
+        <div class="header">
+            ნავიგაცია
+             <button mat-icon-button class="turnoff" (click)="close()">
+                 <mat-icon>close</mat-icon>
+             </button>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+     
+    <div class="toaster slide-down">
+        <div class="toaster-message">
+            <button mat-icon-button>
+                <mat-icon>info</mat-icon>
+            </button>
+            <div class="toaster-content">
+                ნამდვილად გსურთ პროდუქტის წაშლა?
+            </div>
+            
+        </div>
+       </div>
+       <div class="actions" fixedPrice>
+        <button mat-button class="gray action" (click)="close()">
+            უკან
+        </button>
+        <button mat-raised-button color="primary" class="action" (click)="submit()">
+            წაშლა
+        </button>
+    </div>
+</div>
+

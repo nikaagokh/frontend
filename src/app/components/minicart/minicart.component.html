@@ -1,0 +1,68 @@
+<div class="minicart-container" #minicart [class.margin]="cartArray.length > 0">
+    <div class="header-bottom" touch (closed)="closed()">
+        <div class="header">
+             კალათა 
+             <mat-icon class="maximize">maximize</mat-icon>
+             <button mat-icon-button class="turnoff" (click)="closed()">
+                 <mat-icon>close</mat-icon>
+             </button>
+        </div>
+
+    </div>
+    
+        <div class="cart-actions" *ngIf="newPrice > 0">
+            <div class="price-container">
+                <div class="price">
+                    პროდუქტების ღირებულება: 
+                    <span>{{oldPrice.toFixed(2)}} ₾</span>
+                </div>
+                <div class="price sale">
+                    ფასდაკლება: 
+                    <span>-{{(oldPrice - newPrice).toFixed(2)}} ₾</span>
+                </div>
+                <div class="price total">
+                    ფასდაკლებული ღირებულება:
+                    <span>{{newPrice}} ₾</span>
+                </div>
+            </div>
+            <div class="action">
+                <button mat-button class="category" (click)="routerLink()">უკან</button>
+                <button mat-button class="buy-button actions" (click)="detailedCart()">
+                    დეტალურად
+                </button>
+            </div>
+        </div>
+    
+    <ng-container *ngIf="cartArray.length > 0; else temp">
+        <mat-list class="list">
+            <ng-container *ngFor="let item of cartArray; last as isLast">
+                <mat-list-item class="list-item">
+                    <img matListItemAvatar src="{{url}}{{item.images[0].path}}">
+                    <h3 matListItemTitle>{{item.nameGeo}}</h3>
+                    <span matListItemLine>ფასი : {{item.price}} ₾</span>
+                    <span matListItemLine>რაოდენობა : x{{item.quantity}}</span>
+                    <div matListItemMeta (click)="removeItem(item)">
+                        <mat-icon class="sale">delete</mat-icon>
+                    </div>
+                </mat-list-item>
+                <mat-divider *ngIf="!isLast"></mat-divider>
+            </ng-container>
+        </mat-list>
+    </ng-container>
+    <ng-template #temp>
+        <div class="empty-cart">
+            <div class="img-flex">
+                <img src="../../../assets/empty-cart.png" class="empty-img">
+        
+            </div>
+            <div class="message-wrapper">
+                <div class="message">თქვენი კალათა ცარიელია !</div>
+                
+            </div>
+        </div>
+    </ng-template>
+    
+   
+  
+</div>
+

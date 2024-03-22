@@ -1,0 +1,98 @@
+<ng-container *ngIf="products.length > 0; else tmp">
+    <div class="categorywrapper" [class.margin]="view">
+        <div class="product-filter">
+            <div class="filter-flex">
+                <div class="filter-category-flex">
+                    <div class="buttons">
+                        კატეგორიები
+                    </div>
+                    <div class="flex-end">
+                        <button mat-icon-button (click)="view = false">
+                            <mat-icon class="icon-sort">view_week</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="view = true">
+                            <mat-icon class="icon-sort">view_stream</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-flex">
+            <ng-container *ngIf="products.length > 0">
+                <ng-container *ngFor="let item of products">
+                    <div class="product-card" [class.full]="view">
+                        <div [routerLink]="['/product', item.id]">
+                            <div class="image-wrapper">
+                                <div class="image-cont">
+                                    <img src="{{url}}{{item.images[0]?.path}}" class="image">
+                                </div>
+                                <div class="actions-desktop"></div>
+                            </div>
+                            <div class="product-title">
+                                <div class="nameGeo">{{item.nameGeo}}</div>
+                                <div class="category-flex">
+                                    <span class="category">{{item.categorY.name}}</span> 
+                                    <span class="year">({{item.range}})წ</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <div class="fl">
+                                    <span class="price">
+                                        {{item.price | price}}
+                                        <sup class="subprice">
+                                            .{{item.price | subprice}}
+                                        </sup>
+                                    </span>
+                                    <span>
+                                        ₾.
+                                    </span>
+                                    <mat-divider [vertical]="true"></mat-divider>
+                                    <span class="fl line-through">
+                                        {{oldPrice(item.price, item.discount)}}
+                                        <sup class="subprice">
+                                            .00
+                                        </sup>
+                                    </span>
+                                    <span class="crimson">
+                                        ₾.
+                                    </span>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <div class="actions-mobile">
+                            <div class="action-left">
+                                <button mat-icon-button (click)="zoomIn(item.images[0]?.path)">
+                                    <mat-icon>zoom_in</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="addFavorites(item)">
+                                    <mat-icon class="icon" [class.clickIn]="animate===item.id">{{isFavorite(item) ? 'favorite' : 'favorite_border'}}</mat-icon> 
+                                </button>
+                                
+                            </div>
+                            <div class="action-right">
+                                <button mat-icon-button (click)="addToCart(item)">
+                                    <mat-icon>card_travel</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="discount">
+                            -{{item.discount}}%
+                        </div>
+                        <div class="admin-edit icon-mini" *ngIf="admin" matTooltip="ჩასწორება" (click)="edit(item)">
+                            <mat-icon class="edit">edit</mat-icon>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            
+        </div>
+    </div>
+</ng-container>    
+<ng-template #tmp>
+    <div class="empty-category">
+        <img src="../../../assets/empty.jpg" class="empty-img">
+        <div>მსგავსი კატეგორიის პროდუქტი ვერ მოიძებნა!</div>
+    </div>
+</ng-template>

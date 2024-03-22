@@ -1,0 +1,42 @@
+<div class="price-container" [class.gap]="!type" [class.row]="!type">
+    <ng-container *ngIf="type">
+        <div class="price-desc">
+            <div class="price-acc">
+                <div class="price-discount">
+                    <div>
+                        <span class="price">
+                            {{priceObj.newPrice | price}}
+                            
+                        </span>
+                        <span class="price-gel">
+                            ₾.
+                        </span>
+                    </div>
+                </div>
+                <div class="oldprice">
+                    <span class="price old">
+                        {{priceObj.oldPrice | price}}
+                    </span>
+                    <span class="price-gel">
+                        ₾.
+                    </span>
+                </div>
+            </div>
+            <div class="delivery">
+                <mat-icon> phone</mat-icon>
+                <a href="tel:+995558121999" class="tel">558 121-999</a>
+            </div>
+            
+        </div>
+        <div class="price-actions" fixedPrice>
+            <button mat-button class="actions back-button" routerLink="/">
+                უკან
+            </button>
+            <button mat-raised-button class="buy-button actions" (click)="cart()">
+                კალათაში
+            </button>
+        </div>
+    </ng-container>
+    
+</div>
+

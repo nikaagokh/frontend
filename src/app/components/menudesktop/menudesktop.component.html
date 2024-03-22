@@ -1,0 +1,28 @@
+<div class="overlay-container" cdkOverlayOrigin #origin="cdkOverlayOrigin">
+    <div class="mega-menu">
+        <div class="list" #list>
+            <ng-container *ngFor="let item of menu; index as i">
+                <div class="list-item" (click)="subClasses(i)" tabindex="0" #listitem>
+                        
+                    <img src="{{url}}/{{item.image}}" class="menu-img">
+                    <h3 class="itemtitle">{{item.name}}</h3>
+                    <div class="close">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </div>
+                </div>
+            </ng-container>
+           
+        </div>
+    </div>
+    
+    <ng-template [ngIf]="submenu !== undefined">
+        <app-submenudesktop [submenu]="submenu" (closed)="submited($event)"></app-submenudesktop>
+    </ng-template>
+    
+    <!--
+    <ng-template [ngIf]="subMenu !== undefined">
+        <app-submenudesktop [submenu]="carArray[subMenu]" (closed)="submited($event)"></app-submenudesktop>
+    </ng-template>
+    -->
+    
+    </div>

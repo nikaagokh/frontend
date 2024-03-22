@@ -1,0 +1,50 @@
+<ng-container *ngIf="loaded">
+    <div class="bcca-breadcrumb" *ngIf="!auth; else authed">
+        <div class="bcca-breadcrumb-item">პირადი კალათა</div>
+        <div class="bcca-breadcrumb-item" routerLink="/">მთავარი</div>
+    </div>
+    <ng-template #authed>
+        <div class="header-wrapper">
+            <button mat-icon-button class="back" routerLink="/account">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <div class="about-desc">
+                ფავორიტების სია
+            </div>
+        </div>
+    </ng-template>
+    <ng-container *ngIf="favorites.length > 0; else temp">
+        <div class="container">
+            
+            <div class="favorites">
+                <ng-container *ngFor="let item of favorites">
+                    <mat-list>
+                        <mat-list-item class="list-item">
+                            <img matListItemAvatar src="{{url}}{{item.images[0]?.path}}">
+                            <h3 matListItemTitle>{{item.nameGeo}}</h3>
+                            <span matListItemLine>ფასი : {{item.price}} ₾</span>
+                            
+                            <div matListItemMeta (click)="removeItem(item)">
+                                <mat-icon class="sale" matTooltip="ფავორიტებიდან წაშლა">delete</mat-icon>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                    <mat-divider></mat-divider>
+                    
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+<ng-template #temp>
+    <div class="empty-cart">
+        <div class="img-wrapper">
+            <img src="../../../assets/favs.png" class="empty-img">
+        </div>
+        <div class="message-wrapper">
+            <div class="message">ფავორიტების სია ცარიელია !</div>
+            
+        </div>
+    </div>
+</ng-template>
+

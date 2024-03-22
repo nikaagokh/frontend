@@ -1,0 +1,59 @@
+<div class="auth-container">
+    <div class="header-auth" touch (closed)="clicked()">
+        <div class="header">
+            ავტორიზაცია
+             <mat-icon class="maximize">maximize</mat-icon>
+             <button mat-icon-button class="turnoff" (click)="clicked()">
+                 <mat-icon>close</mat-icon>
+             </button>
+        </div>
+    </div>
+    <div class="auth-body">
+           <div class="toaster slide-down" *ngIf="toaster" [class.error]="error" #toasterRef>
+            <div class="toaster-message">
+                <button mat-icon-button *ngIf="!error">
+                    <mat-icon>info</mat-icon>
+                </button>
+                <button mat-icon-button *ngIf="error">
+                    <mat-icon>warning</mat-icon>
+                </button>
+                <div class="toaster-content" *ngIf="!error">
+                    სისტემაში შესასვლელად, გთხოვთ გაიაროთ რეგისტრაცია, ან ავტორიზაცია
+                </div>
+                <div class="toaster-content" *ngIf="error">
+                    იმეილი ან პაროლი არასწორია !
+                </div>
+                <div (click)="toaster=false">
+                    <mat-icon class="close-sm">close</mat-icon>
+                </div>
+            </div>
+           </div>
+            <div class="form" [formGroup]="reactiveForm">
+                <mat-form-field appearance="outline" class="user-input">
+                    <mat-icon matPrefix matTooltip="მომხმარებლის მეილი">account_circle</mat-icon>
+                    <mat-label class="label">მომხმარებლის იმეილი</mat-label>
+                    <input type="email" matInput formControlName="mailnumber" autocomplete="on" name="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="user-input">
+
+                        <mat-icon matPrefix matTooltip="პაროლი">lock</mat-icon>
+                    
+                    <mat-label class="label">მომხმარებლის პაროლი</mat-label>
+                    <input [type]="ptype ? 'text' : 'password'" matInput formControlName="password">
+                    
+                    <mat-error>
+                        მსგავსი მომხმარებელი ვერ მოიძებნა
+                    </mat-error>
+                </mat-form-field>
+                <div class="forget" (click)="renew()">
+                    დაგავიწყდა პაროლი?
+                </div>
+                <button mat-raised-button color="primary" class="button" (click)="submit()">
+                    ავტორიზაცია
+                </button>
+                <button mat-raised-button class="button color" (click)="register()">
+                    რეგისტრაცია
+                </button>
+            </div>
+        </div>
+</div>

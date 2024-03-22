@@ -1,0 +1,99 @@
+<div class="container">
+    <!--
+    <div class="img-container">
+        <img [src]="imageArray[active]" (mousemove)="mouseMove($event)" (mouseleave)="mouseLeave($event)" #img  (mouseenter)="mouseEnter($event)">
+        
+    </div>
+    <div class="zoom-number">
+        {{zoom.toFixed(1)}}X
+    </div>
+    <div class="action-container">
+    
+        <button mat-icon-button (click)="zoomIn()" matTooltip="გადიდება">
+            <mat-icon class="icon">zoom_in</mat-icon>
+        </button>
+        <button mat-icon-button (click)="zoomOut()" matTooltip="დაპატარავება">
+            <mat-icon class="icon">zoom_out</mat-icon>
+        </button>
+        
+        <button mat-icon-button (click)="full()" *ngIf="fullscreen" matTooltip="მთლიან ეკრანზე">
+            <mat-icon class="icon">fullscreen</mat-icon>
+        </button>
+        <button mat-icon-button (click)="min()" *ngIf="!fullscreen" matTooltip="ნახევარ ეკრანზე">
+            <mat-icon class="icon">fullscreen_exit</mat-icon>
+        </button>
+    </div>
+    <div class="close">
+        <button mat-icon-button (click)="close()" matTooltip="დახურვა">
+            <mat-icon class="icon">close</mat-icon>
+        </button>
+    </div>
+    <div class="left" *ngIf="imageArray.length > 1">
+        <button mat-icon-button (click)="left()" matTooltip="წინა">
+            <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+        </button>
+    </div>
+    <div class="right" *ngIf="imageArray.length > 1">
+        <button mat-icon-button (click)="right()" matTooltip="შემდეგი">
+            <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+    -->
+    <div class="header-zoom" (click)="close()" >
+        <div class="header">
+            გალერია
+             
+            <div class="zoom-number">
+                {{zoom.toFixed(1)}}X
+            </div>
+             <button mat-icon-button class="turnoff" (click)="close()">
+                 <mat-icon>close</mat-icon>
+             </button>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+    <div class="img-container">
+        <img src="{{url}}/{{imageArray[active]}}" (mousemove)="mouseMove($event)" (mouseleave)="mouseLeave($event)" #img  (mouseenter)="mouseEnter($event)" (dblclick)="dblClick($event)">
+        <div class="left" *ngIf="imageArray.length > 1">
+            <button mat-icon-button (click)="left()" matTooltip="წინა">
+                <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+        <div class="right" *ngIf="imageArray.length > 1">
+            <button mat-icon-button (click)="right()" matTooltip="შემდეგი">
+                <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+            </button>
+        </div>
+    </div>
+    <!--
+    <div class="action-container">
+        
+        <div class="zoom" (click)="zoomIn()" >
+            <div class="zoom-wrapper">
+                <mat-icon class="icon">zoom_in</mat-icon>
+                გადიდება
+            </div>
+        </div>
+        <div class="zoom" (click)="zoomOut()">
+            <div class="zoom-wrapper">
+                <mat-icon class="icon">zoom_out</mat-icon>
+                შემცირება
+            </div>
+        </div>
+        <div class="zoom" (click)="full()" *ngIf="fullscreen">
+            <div class="zoom-wrapper">
+                <mat-icon class="icon">fullscreen</mat-icon>
+                მთლიან ეკრანზე
+            </div>
+        </div>
+        <div class="zoom" (click)="min()" *ngIf="!fullscreen">
+            <div class="zoom-wrapper">
+                <mat-icon class="icon">fullscreen_exit</mat-icon>
+                ნახევარ ეკრანზე
+            </div>        
+    </div>
+   -->
+</div>
+
+
+

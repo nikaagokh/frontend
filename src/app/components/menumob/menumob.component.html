@@ -1,0 +1,53 @@
+<div class="overlay-container">
+    
+    <div class="menu-cont">
+        <div class="menu-desc">
+            მენიუ
+        </div>
+        <button mat-icon-button (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+<mat-divider></mat-divider>
+<div class="minicart-body">
+    <mat-list class="list">
+        <ng-container *ngFor="let item of Menu; index as i">
+            <mat-list-item class="item" bg (click)="submenu(i)">
+                <img matListItemAvatar src="{{url}}/{{item.image}}">
+                <h3 matListItemTitle>{{item.name}}</h3>
+                <div matListItemMeta class="close">
+                    <button mat-icon-button>
+                        <mat-icon class="close-sm">keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+                
+            </mat-list-item>
+            <mat-divider [inset]="true"></mat-divider>
+        </ng-container>
+        
+    </mat-list>
+</div>
+<div class="contact-wrapper">
+    <div class="contact-flex">
+        <div class="desc">
+            კონტაქტი
+        </div>
+        <div class="location-flex">
+            <mat-icon class="icon">location_on</mat-icon>
+            <div class="location">
+                <a href="https://www.google.com/maps/place/9+%E1%83%A8%E1%83%90%E1%83%9C%E1%83%93%E1%83%9D%E1%83%A0+%E1%83%9E%E1%83%94%E1%83%A2%E1%83%94%E1%83%A4%E1%83%98%E1%83%A1+%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90,+%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98/@41.6929266,44.8619146,17z/data=!4m5!3m4!1s0x40440dbe85bca99d:0x239cc0763bc8f76a!8m2!3d41.6944207!4d44.8625476?entry=ttu" class="tel">შანდორ პეტეფის ქუჩა, 9</a>
+            </div>
+        </div>
+        <div class="number-flex">
+            <mat-icon class="icon"> phone</mat-icon>
+            <a href="tel:+995558121999" class="tel">558 121-999</a>
+        </div>
+        <div class="fb-flex">
+            <img src="../../../assets/fb.png" class="fb">
+            <a href="https://www.facebook.com/vgparts.ge.store" class="tel">გამოგვყევით ფეისბუქზე</a>
+        </div>
+    </div>
+</div>
+
+</div>
+

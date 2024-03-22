@@ -1,0 +1,78 @@
+<div class="search-container">
+    <div class="search-inputwrapper" #header >
+        <mat-form-field appearance="fill" class="search-input">
+            <button matPrefix mat-icon-button (click)="closeSearch()">
+              <mat-icon class="icon">arrow_back</mat-icon>
+            </button>
+            <mat-label>ძიება</mat-label>
+            <input type="text" matInput [formControl]="searched">
+            <button matSuffix mat-icon-button>
+                <mat-icon class="icon">search</mat-icon>
+            </button>
+        </mat-form-field>
+      
+    </div>
+    <div class="search-content">
+        <div class="list">
+            <ng-container *ngIf="productList.length > 0; else temp">
+                <ng-container *ngFor="let item of productList; let i = index">
+                    <div class="list-item" (click)="selectProduct(item.id)">
+                    
+                        <img src="{{url}}{{item.images[0]?.path}}" class="list-img" (click)="slideLeft(true)">
+                        <span class="list-content">
+                            <h3 class="list-title">{{item.nameGeo}} ({{item.categorY?.name}})</h3>
+                            <p class="list-price">{{item.price}}₾</p>
+                        </span>
+                        
+                    </div>
+                    <mat-divider [inset]="true"></mat-divider>
+                </ng-container>
+                 
+            </ng-container>
+            <ng-template #temp>
+                <div class="not-exist-wrapper">
+                    <div class="not-exist" *ngIf="notexist">
+                        <img src="../../../assets/search4.png" class="not-exist-img">
+                        <div class="not-exist-title">მსგავსი პროდუქტი ვერ მოიძებნა!</div>
+                    </div>
+                    
+                    <div class="famous-searches">
+                        <div class="top-wrapper">
+                            <span class="top">
+                                Top კატეგორიები
+                            </span>
+                        </div> 
+                        <div class="searched-flex">
+                            <div class="col">
+                                <div class="searched-wrapper">
+                                    <img src="../../../assets/carpart.png" height="25" width="25">
+                                    ძარის ნაწილები
+                                </div>
+                                <div class="searched-wrapper">
+                                    <img src="../../../assets/carpart3.jpg" height="25" width="25">
+                                    სავალი ნაწილები
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="searched-wrapper">
+                                    <img src="../../../assets/carpart5.png" height="25" width="25">
+                                    ელექტროობა
+                                </div>
+                                <div class="searched-wrapper">
+                                    <img src="../../../assets/carpart4.png" height="25" width="25">
+                                    გაგრილების სისტემა
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+           
+            
+     
+  
+    </div>
+    </div>
+</div>
+

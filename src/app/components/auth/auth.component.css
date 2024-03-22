@@ -1,0 +1,135 @@
+.auth-container {
+    width: 100%;
+    height: 60vh;
+    padding-right: 1rem;
+    color: #646d8c;
+    font-size: 0.8rem;
+    transition: height .2s ease-out;
+    overflow-y: auto;
+    
+}
+.header {
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    height: 100%;
+    position: relative;
+}
+.header-icon {
+        position: absolute;
+        display: block;
+        width: 2.5rem;
+        height: .25rem;
+        left: 50%;
+        top: .1rem;
+        transform: translate3d(-50%, -100%, 0);
+        border-radius: 3rem;
+        background-color: #646d8c;
+        opacity: .25;
+}
+.header-auth {
+    border-bottom: 1px solid #646d8c;
+    height: 3.5rem;
+    position: sticky;
+    top: -10px;
+    background-color: white;
+    z-index: 1;  
+    touch-action: none;  
+}
+.maximize {
+    position: fixed;
+    left: 50%;
+    top: .5rem;
+    opacity: .5;
+}
+.auth-body {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:15px;
+    
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.button {
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+.color {
+    color: #646d8c!important;
+}
+.toaster {
+    background-color: rgba(219,234,254,0.7);
+    border: solid #3b82f6;
+    border-width: 0 0 0 6px;
+    color: #3b82f6;
+    margin: 0 0 1rem 0;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.toaster-message {
+    padding: 1rem;
+    border-width: 0 0 0 6px;
+    display: flex;
+    align-items: center;
+}
+.forget {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.close-sm {
+    font-size: .7rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    margin-top: 1rem;
+}
+.slide-down {
+    animation:  slide-down .4s ease-out forwards;
+}
+.label {
+    font-size: 0.7rem;
+}
+.error {
+    background-color: rgba(255, 231, 230, 0.7);
+    border: solid #ff5757;
+    border-width: 0 0 0 6px;
+    color: #ff5757;
+}
+@keyframes slide-down {
+    0% {
+      transform: translateY(-1rem) scale(.8);
+      opacity: .3;
+    }
+    100% {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @media (min-width:388px) {
+    .label {
+        font-size: 1rem;
+    }
+  }
+  @media (min-width:992px) {
+    .auth-container {
+        height: 100%;
+        max-width: 400px;
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+        
+    }
+    .maximize {
+        display: none;
+    }
+}

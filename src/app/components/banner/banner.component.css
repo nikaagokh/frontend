@@ -1,0 +1,53 @@
+.banner {
+    width: 100%;
+    box-sizing: border-box;
+  }
+.banner-item {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.5rem;
+      background-color:steelblue;
+      border-radius: 1rem;
+      cursor: pointer;
+      color: #fff;
+      width: 100%;
+      position: relative;
+      height: 3rem;
+      font-weight: 800;
+  }
+  .banner-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.5rem;
+      background-color:#5b932b;
+      border-radius: 1rem;
+      cursor: pointer;
+      color: #fff;
+      width: 100%;
+      position: relative;
+      height: 3rem;
+      font-weight: 800;
+  }
+  .b1 {
+    background-color: steelblue;
+  }
+  .b2 {
+    background-color: #5b932b;
+  }
+  .bg {
+    opacity: 0.5;
+  }
+  .banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+@media (min-width:768px) {
+    .banner-item {
+        width: 45%;
+    }
+}

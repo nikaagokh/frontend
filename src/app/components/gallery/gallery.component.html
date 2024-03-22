@@ -1,0 +1,71 @@
+<div class="carousel-container divider">
+    <div class="product-touch" [gallery]="slide" [max]="images.length" (page)="changePos($event)" [full]="true">
+        <div class="product-flex">
+            <ng-container *ngFor="let item of images">
+                <div class="product-card" size>
+                    <div class="image-wrapper" size>
+                        <div class="image-cont">
+                            <!--<img [src]="item" class="image">-->
+                            <img src="{{url}}/{{item.path}}" class="image" (click)="zoomImage(item)">
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="dots-image">
+        <div class="dots-swiper">
+            <div class="dots-flex">
+                <ng-container *ngFor="let image of images; let i = index">
+                    <div class="dots-wrapper" [class.active]="carousel===i" (click)="changeArrows(i)">
+                        <img src="{{url}}/{{image.path}}" class="dot-image">
+                    </div>
+                </ng-container>
+                <!--
+                <div class="dots-wrapper" [class.bordered]="carousel===1" (click)="arrows(1)">
+                    <img [src]="image" class="dot-image">
+                    <img src="../../../assets/kap2.jpeg" class="dot-image">
+                </div>
+                <div class="dots-wrapper" [class.bordered]="carousel===2" (click)="arrows(2)">
+                    
+                    <img src="../../../assets/kap3.jpeg" class="dot-image">
+                </div>
+            -->
+            </div>
+        </div>
+    </div>
+    <div class="discount">
+        -{{product.discount}}%
+    </div>
+    <button mat-icon-button class="favorite" (click)="addFavorites(product)" >
+        <mat-icon class="icon" [class.clickIn]="animate===product.id">{{isFavorite(product) ? 'favorite' : 'favorite_border'}}</mat-icon> 
+    </button>
+    <button mat-icon-button class="fav-desktop" (click)="addFavorites(product)">
+        <mat-icon class="icon" [class.clickIn]="animate===product.id">{{isFavorite(product) ? 'favorite' : 'favorite_border'}}</mat-icon> 
+    </button>
+    <div class="general-info-container">
+        <div class="general-info-flex">
+            <div class="info-left">
+
+                <div class="info-wrapper aft">
+                    <mat-icon class="info-icon">remove_red_eye</mat-icon>
+                    <span class="text">{{product.views}}</span>
+                    
+                </div>
+                
+                <div class="info-wrapper aft">
+                    <mat-icon class="info-icon">access_time</mat-icon>
+                    <span class="text">{{product.date}}</span>
+                </div>
+                <div class="info-wrapper">
+                    <span class="text">{{product.sku}}</span>
+                </div>
+            </div>
+            <div class="info-wrapper info-right" (click)="openEdit()">
+                <mat-icon class="info-icon">share</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>

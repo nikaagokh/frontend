@@ -1,0 +1,50 @@
+:host {
+    display: block;
+}
+.about-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.information-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    color: #253988;
+    font-weight: 600;
+    margin-top: 1.25rem;
+}
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+}
+.field {
+    width: 70%;
+}
+.back {
+    color: #253988!important;
+
+}
+.about-desc {
+    color: #253988;
+    font-size: 1rem;
+}
+@media (min-width:768px) {
+    .field {
+        width: 60%;
+    }
+}
+@media (min-width:992px) {
+    .information-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .field {
+        width: 47%;
+    }
+    .back {
+        display: none;
+    }
+}
+

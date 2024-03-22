@@ -1,0 +1,48 @@
+<ng-container *ngIf="loaded; else temp">
+    <div class="container">
+         <div class="bcca-breadcrumb">
+            <div class="bcca-breadcrumb-item">{{breadcrumb[0]?.name}}</div>
+            <div class="bcca-breadcrumb-item" routerLink="/">მთავარი</div>
+        </div>
+        <!--
+        <div class="mobile-category" (click)="filtered()" head>
+            <button mat-raised-button color="primary" class="butt">ფილტრი</button>
+        </div>
+        -->
+        <div class="category-container">
+            <!--
+            <app-categoryfilter *ngIf="filter && visible" (visible)="changeVisible(false)"></app-categoryfilter>
+            -->
+                <app-categorywrap [products]="productObject.products"></app-categorywrap>
+            
+        </div>
+    
+    </div>
+
+</ng-container>
+
+<ng-template #temp>
+    <app-skeleton [full]="true"></app-skeleton>
+</ng-template>
+<!--
+<div class="filter-fixed" (click)="changeVisible(true)" [class.slide]="visible">
+    <div class="filter-rel">
+        <mat-icon class="icon-filter">filter_list</mat-icon>
+        <span class="filter-desc">ფილტრი</span>
+    </div>
+</div>
+-->
+
+<div class="pagination-container" *ngIf="productObject.products.length > 0">
+    <div class="pagination-flex">
+        <div class="prev pad" (click)="prev()" >
+            <mat-icon class="arrow">chevron_left</mat-icon>
+        </div>
+        <ng-container *ngFor="let item of pages; index as i">
+            <div class="number pad" [class.active]="currentPage === i + 1" (click)="changePage(i+1)">{{item}}</div>
+        </ng-container>
+        <div class="next pad" (click)="next()">
+            <mat-icon class="arrow">chevron_right</mat-icon>
+        </div>
+    </div>
+</div>

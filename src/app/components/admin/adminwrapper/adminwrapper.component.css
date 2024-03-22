@@ -1,0 +1,123 @@
+.account-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.menu-mob {
+    width: 100%;
+    border-right: 0.1rem solid #f2f3f8;
+    height: 70vh;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0,2);
+    border-radius: 0.5rem;
+    max-width: 550px;
+    margin: 0 auto;
+}
+.menu-desk {
+    width: 20rem;
+    border-right: 0.1rem solid #f2f3f8;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0,2);
+    border-radius: 0.5rem;
+    display: none;
+}
+.list {
+    padding: 1rem;
+    padding-right: 1.5rem;
+}
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    color: #253988;
+}
+
+.selectionlist {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    border-radius: 4rem!important;
+    cursor: pointer;
+    color: #253988;
+}
+.active {
+    background-color: #f7f8f9;
+    border: 2px solid #e5e7f1;
+}
+.selectionlist:focus {
+    background-color: #f7f8f9;
+    border: 2px solid #e5e7f1;
+}
+.list-item:hover {
+    background-color: #f7f8f9;
+}
+.content-container-desktop {
+    width: calc(100% - 25rem);
+    padding: 1.5rem;
+    height: auto;
+    display: none;
+}
+.content-container-mob {
+    padding: 1.5rem;
+    height: auto;
+    width: 100%;
+    display: none;
+}
+.hovered {
+    background-color: #f7f8f9;
+}
+.list-item:focus {
+    outline: none;
+    background-color: #f7f8f9;
+}
+.search-autocomplete {
+    width: 60%;
+    height: 3rem;
+    
+  }
+  .search-formfield {
+    width: 100%;
+    height: 4.5rem;
+    position: relative;
+  }
+  .search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+@media (min-width:992px) {
+    .menu-mob {
+        display: none;
+
+    }
+    .menu-desk {
+        display: block;
+    }
+    .content-container-desktop {
+        display: block;
+        padding: 0 1rem;
+    }
+    .content-container-mob {
+        display: none;
+    }
+}
+.hide {
+    display: none;
+}
+.w100 {
+    width: 100%;
+}

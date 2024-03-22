@@ -1,0 +1,51 @@
+<div class="renew-container">
+    <div class="header-renew">
+        <div class="header">
+            
+            <button mat-icon-button class="back" (click)="back()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            
+            პაროლის აღდგენა
+             <button mat-icon-button (click)="close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="renew-body">
+        <div class="toaster" *ngIf="toaster" [class.error]="error">
+            <div class="toaster-message">
+                
+                    <button mat-icon-button *ngIf="!error">
+                        <mat-icon>info</mat-icon>
+                    </button>
+                    <button mat-icon-button *ngIf="error">
+                        <mat-icon>warning</mat-icon>
+                    </button>
+                    <div class="toaster-content" *ngIf="!error">
+                       პაროლის აღდგენისთვის საჭიროა, რომ მითითებულ მეილზე წვდომა გქონდეთ
+                    </div>
+                    <div class="toaster-content" *ngIf="error">
+                        მსგავსი მეილი ვერ მოიძებნა, თავიდან სცადეთ
+                     </div>
+                
+
+                <div class="" (click)="toaster=false">
+                    <mat-icon class="close-sm">close</mat-icon>
+                </div>
+                
+            </div>
+           </div>
+        <div class="renew-input">
+            <mat-form-field>
+                <mat-label>მომხმარებლის იმეილი</mat-label>
+                <mat-icon matPrefix>account_circle</mat-icon>
+                <input type="email" matInput [formControl]="fc" name="email" autocomplete="on">
+
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="button" (click)="renewPassword()" [disabled]="sent">
+                აღდგენა
+            </button>
+        </div>
+    </div>
+</div>

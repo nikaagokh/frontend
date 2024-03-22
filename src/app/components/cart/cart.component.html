@@ -1,0 +1,21 @@
+<div class="container" *ngIf="loaded">
+    <div class="bcca-breadcrumb" *ngIf="!auth; else authed">
+        <div class="bcca-breadcrumb-item">პირადი კალათა</div>
+        <div class="bcca-breadcrumb-item" routerLink="/">მთავარი</div>
+    </div>
+    <ng-template #authed>
+        <div class="header-wrapper">
+            <button mat-icon-button class="back" routerLink="/account">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <div class="about-desc">
+                პირადი კალათა 
+            </div>
+        </div>
+    </ng-template>
+    <div class="cart-container">
+        <app-cartwrapper></app-cartwrapper>
+        <app-price-cart [price]="priceObject"></app-price-cart>
+        <app-cart-fixedprice [price]="priceObject"></app-cart-fixedprice>
+    </div>
+</div>

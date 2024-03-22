@@ -1,0 +1,63 @@
+<div class="account-container">
+    <div class="menu-mob">
+        <div class="list">
+            <div class="list-item" (click)="active = 0" [class.active]="active === 0" routerLink="/account/about">
+                <mat-icon>perm_identity</mat-icon>
+                პირადი ანგარიში
+            </div>
+            <div class="list-item" (click)="active = 1" [class.active]="active === 1" routerLink="/account/password">
+                <mat-icon>lock_open</mat-icon>
+                პაროლის ცვლილება
+            </div>
+            <div class="list-item" (click)="active = 2" [class.active]="active === 2" routerLink="/favorites">
+                <mat-icon>favorite_border</mat-icon>
+                ფავორიტები
+            </div>
+            <div class="list-item" (click)="active = 3" [class.active]="active === 3" routerLink="/cart">
+                <mat-icon>work_outline</mat-icon>
+                პირადი კალათა
+            </div>
+            <div class="list-item" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                გასვლა
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-desk">
+        
+        <div class="list" #list>
+            <div class="list-item" (click)="clicked(0)" [class.active]="active === 0" tabindex="0" #listitem >
+                <mat-icon>perm_identity</mat-icon>
+                პირადი ანგარიში
+            </div>
+            <div class="list-item" (click)="clicked(1)" [class.active]="active === 1" tabindex="0"  #listitem>
+                <mat-icon>lock_open</mat-icon>
+                პაროლის ცვლილება
+            </div>
+            <div class="list-item" (click)="clicked(2)" [class.active]="active === 2" tabindex="0" #listitem routerLink="/favorites">
+                <mat-icon>favorite_border</mat-icon>
+                ფავორიტები
+            </div>
+            <div class="list-item" (click)="clicked(3)" [class.active]="active === 3" tabindex="0" #listitem routerLink="/cart">
+                <mat-icon>work_outline</mat-icon>
+                პირადი კალათა
+            </div>
+            <div class="list-item" (click)="logout()" [class.hovered]="hovered === 5" tabindex="0" #listitem>
+                <mat-icon>exit_to_app</mat-icon>
+                გასვლა
+            </div>
+        </div>
+        
+
+    
+    </div>
+    <div class="content-container">
+        <app-about *ngIf="active === 0"></app-about>
+        <app-password *ngIf="active === 1"></app-password>
+        <app-favorites *ngIf="active === 2"></app-favorites>
+        <!--
+        <app-cart *ngIf="active === 3"></app-cart>
+        -->
+    </div>
+</div>

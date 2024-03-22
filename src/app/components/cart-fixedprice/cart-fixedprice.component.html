@@ -1,0 +1,43 @@
+<div class="price-container" *ngIf="price.newPrice > 0">
+
+    <div class="price-desc price-center">
+        <div class="price-acc">
+            <div class="price-discount">
+                
+                <div>
+                    <span class="price">
+                        {{price.newPrice | price}}
+                        
+                    </span>
+                    <span class="price-gel">
+                        ₾.
+                    </span>
+                </div>
+            </div>
+            <div class="oldpric">
+                <span class="price old sm">
+                    {{price.oldPrice | price}}
+                    
+                </span>
+                <span class="price-gel">
+                    ₾.
+                </span>
+            </div>
+        </div>
+        <div class="delivery">
+            <mat-icon> phone</mat-icon>
+            <a href="tel:+995558121999" class="tel">558 121-999</a>
+        </div>
+    </div>
+    
+    
+    <div class="price-actions flexing" fixedPrice>
+    <button mat-button class="butt back-button" routerLink="/account">
+        უკან
+    </button>
+    <button mat-raised-button class="buy-button butt" (click)="buy()">
+        ყიდვა
+    </button>
+    </div>
+</div>
+

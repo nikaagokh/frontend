@@ -1,0 +1,77 @@
+<div class="cart-container">
+    <div class="header-bottom">
+        <div class="header">
+             კალათა
+             <div class="minimize" matTooltip="კალათის ჩაკეცვა" (click)="closed()">
+                 <mat-icon>maximize</mat-icon>
+
+             </div>
+             
+
+        </div>
+
+    </div>
+    
+            <ng-container *ngIf="cartArray.length > 0; else temp">
+                <mat-list>
+                    <ng-container *ngFor="let item of cartArray; last as isLast">
+                        <mat-list-item class="list-item">
+                            <img matListItemAvatar src="{{url}}{{item.images[0]?.path}}">
+                            <h3 matListItemTitle>{{item.nameGeo}}</h3>
+                            <span matListItemLine>ფასი : {{item.price}} ₾</span>
+                            <span matListItemLine>რაოდენობა : x{{item.quantity}}</span>
+                            <div matListItemMeta (click)="removeItem(item)">
+                                <mat-icon class="delete" matTooltip="კალათიდან წაშლა">delete</mat-icon>
+                            </div>
+                        </mat-list-item>
+                        <mat-divider *ngIf="!isLast"></mat-divider>
+                    </ng-container>
+                </mat-list>
+            </ng-container>
+            <ng-template #temp>
+                <div class="empty-cart">
+                    <div class="img-flex">
+                        <img src="../../../assets/empty-cart.png" class="empty-img">
+                
+                    </div>
+                    <div class="message-wrapper">
+                        <div class="message">თქვენი კალათა ცარიელია !</div>
+                        
+                    </div>
+                </div>
+            </ng-template>
+        
+</div>
+<ng-container *ngIf="cartArray.length > 0; else back">
+
+    <mat-divider></mat-divider>
+    <div class="cart-sum">
+        
+            <div class="price">
+                პროდუქტების ღირებულება: 
+                <span class="price-max">{{oldPrice.toFixed(2)}} ₾</span>
+            </div>
+            <div class="price sale">
+                ფასდაკლება: 
+                <span class="price-max">-{{(oldPrice-newPrice).toFixed(2)}} ₾</span>
+            </div>
+            <div class="price total">
+                ფასდაკლებული ღირებულება:
+                <span class="price-max">{{newPrice.toFixed(2)}} ₾</span>
+            </div>
+        
+    </div>
+    
+    <div class="cart-actions">
+        <button mat-button class="category" (click)="closed()">უკან</button>
+        <button mat-button class="buy-button actions" (click)="detailedCart()">    
+            დეტალურად
+        </button>
+       
+        
+    </div>
+</ng-container>
+<ng-template #back>
+
+</ng-template>
+

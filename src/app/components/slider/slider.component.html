@@ -1,0 +1,139 @@
+<div #list tabindex="0" class="list-cont">
+    <ng-container *ngIf="productArray.length > 0">
+        <div class="carousel-container">
+            <div class="carousel-header">
+                <div class="header-wrapper">
+                    <div class="heading">
+                        <div class="cat">{{category}}</div>
+                    </div>
+                    <div class="nav">
+                        <button mat-icon-button (click)="previous()" class="nav-button">
+                            <mat-icon>keyboard_arrow_left</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="next()" class="nav-button">
+                            <mat-icon>keyboard_arrow_right</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- [appPointer]="carousel" [max]="productArray.length" (page)="pos($event)" [size]="size" es mewera flex-shi -->
+            <div class="product-touch" [appSlider]="slide" [max]="productArray.length" (page)="changePos($event)">
+                <div class="product-flex" >
+                        <ng-container *ngFor="let item of productArray">
+                            <div class="product-card" size tabindex="0" #listitem>
+                                <div [routerLink]="['/product', item.id]" class="product-hover">
+                                    <div class="image-wrapper">
+                                        <div class="image-cont">
+                                            <img src="{{url}}{{item.images[0]?.path}}" class="image">
+                                        </div>
+                                        <div class="actions-desktop"></div>
+                                    </div>
+                                    <div class="product-title">
+                                        <div class="name">{{item.nameGeo}}</div>
+                                        <div class="categoryName" *ngIf="item.type === 0">{{item.categorY.name}}</div>
+                                        <div class="stock" *ngIf="item.type === 1">
+                                            <ng-template [ngIf]="item.available ===1">
+                                                <mat-icon class="stock-icon in">check_box</mat-icon>
+                                                <span class="in">გასაქირავებელი</span>
+                                            </ng-template>
+                                            <ng-template [ngIf]="item.available === 0">
+                                                <mat-icon class="stock-icon out">indeterminate_check_box</mat-icon>
+                                                <span class="out">გაქირავებული</span>
+                                                
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <div class="fl gaps">
+                                            <span class="fl dot">
+                                                {{item.price | price}}
+                                                <sup class="subprice">
+                                                    .{{item.price | subprice}}
+                                                </sup>
+                                            </span>
+                                            <span>
+                                                ₾.
+                                            </span>
+                                             <mat-divider [vertical]="true"></mat-divider>
+                                             <div class="oldprice" *ngIf="item.type === 0">
+                                                 <span class="fl line-through">
+                                                     {{oldPrice(item.price, item.discount)}}
+                                                     <sup class="subprice">
+                                                         .00
+                                                     </sup>
+                                                 </span>
+                                                 <span class="crimson">
+                                                     ₾.
+                                                 </span>
+
+                                             </div>
+                                             <div class="daily" *ngIf="item.type === 1">
+                                                დღიურად
+                                             </div>
+                                        </div>                                         
+                                        
+                                    </div>
+
+                                </div>
+                                
+                                <div class="actions-mobile">
+                                    <div class="action-left">
+                                        <div (click)="zoomIn(item.images[0]?.path)" class="icon-mini">
+                                            <mat-icon class="icon">zoom_in</mat-icon>
+                                        </div>
+                                        <div (click)="addFavorites(item)" class="icon-mini" >
+                                             <mat-icon class="icon" [class.animate]="animate">{{isFavorite(item) ? 'favorite' : 'favorite_border'}}</mat-icon> 
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="action-right" [class.admin-flex]="admin">
+                                        <div class="icon-mini" (click)="addCart(item)">
+                                            <mat-icon class="icon">card_travel</mat-icon>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="actions-medium">
+                                    <div class="actions-left-medium">
+                                        <button mat-icon-button (click)="zoomIn(item.images[0]?.path)" [matTooltip]="!mobsize ? 'გადიდება' : ''">
+                                            <mat-icon class="icon">zoom_in</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="addFavorites(item)" [matTooltip]="!mobsize ? 'ფავორიტები' : ''">
+                                             <mat-icon class="icon" [class.clickIn]="animate===item.id">{{isFavorite(item) ? 'favorite' : 'favorite_border'}}</mat-icon> 
+                                            
+                                        </button>
+                                    </div>
+                                    <div class="actions-right-medium">
+                                        <button mat-icon-button (click)="addCart(item)" [matTooltip]="!mobsize ? 'კალათა' : ''">
+                                            <mat-icon class="icon">card_travel</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="discount" *ngIf="item.type === 0">
+                                    -{{item.discount}}%
+                                </div>
+                                <div class="admin-edit icon-mini" *ngIf="admin" matTooltip="ჩასწორება">
+                                    <mat-icon class="edit">edit</mat-icon>
+                                </div>
+                            </div>
+                        </ng-container>
+                          
+                      
+                    
+                </div>
+            </div>
+            <div class="see-all-wrapper">
+                <div class="see-all-flex" routerLink="/tag/{{categoryId}}" *ngIf="productArray[0].type === 0">
+                    ყველას ნახვა
+                    <mat-icon class="see-all-icon">keyboard_arrow_right</mat-icon>
+                </div>
+                <div class="see-all-flex" routerLink="/cars" *ngIf="productArray[0].type === 1">
+                    ყველას ნახვა
+                    <mat-icon class="see-all-icon">keyboard_arrow_right</mat-icon>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+

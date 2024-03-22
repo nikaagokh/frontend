@@ -1,0 +1,325 @@
+:host {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.messages-container {
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    position: relative;
+    box-sizing: border-box;
+    background-image: url('../../../../assets/back.jpg');
+    background-repeat: round;
+    padding: 0 0.5rem;
+    overflow-x: hidden;
+  }
+  .chat-container {
+      width: 100%;
+      height: 60vh;
+      color: #646d8c;
+      font-size: 0.8rem;
+      transition: height .2s ease-out;
+      touch-action: none; 
+      overflow-y: auto;
+      position: relative;
+      transition: scroll-behavior 1s ease-in-out;
+    }
+    .intersecting {
+      position: absolute;
+      width: 100%;
+      height: 200px;
+    }
+    .chat-background {
+      background-image: url('../../../../assets/back.jpg');
+    }
+    .chat-footer {
+      padding: 0.5rem;
+      position: relative;
+      height: 10%;
+      background-color: white;
+    }
+    .search-md {
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  }
+  .search-md input {
+      height: 2.5rem;
+      border: 1px solid #e5e7f1;
+      font-size: .875rem;
+      padding-left: 1.5rem;
+      border-radius: 30px;
+      width: 95%;
+      padding-right: 1.5rem;
+      box-sizing: border-box;
+  }
+  .thumb-up-icon {
+    color: steelblue;
+    cursor: pointer;
+  }
+  .thumb {
+    align-self: flex-end;
+  }
+  .send-message-icon {
+    color: steelblue;
+    cursor: pointer;
+  }
+  .search-md-icon {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.85rem;
+    cursor: pointer;
+  }
+  .search-md input:focus {
+    outline: none;
+  }
+  .chat-flex {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 0.3rem;
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+  .message-wrapper {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    max-width: 60%;
+  }
+  
+  .margin-bottom {
+    margin-bottom: 2rem;
+  }
+  .send {
+    background-color: steelblue;
+    align-self: flex-end;
+    padding-right: 0.75rem;
+  }
+  .sendlasti {
+    border-bottom-right-radius: 0;
+  }
+ 
+  .sendlast::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    right: -8px;
+    height: 20px;
+    width: 20px;
+    background-color: steelblue;
+    background-attachment: fixed;
+    border-bottom-left-radius: 15px;
+  }
+  .sendlast::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: -10px;
+    width: 10px;
+    height: 20px;
+    background: #f7f8f9;
+    border-bottom-left-radius: 10px;
+  }
+  .receive {
+    background-color: mediumaquamarine;
+    align-self: flex-start;
+    padding-left: 0.75rem;
+  }
+  .receivelast::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: -8px;
+    height: 20px;
+    width: 20px;
+    background-color: mediumaquamarine;
+    background-attachment: fixed;
+    border-bottom-right-radius: 15px;
+  }
+  .receivelasti {
+    border-bottom-left-radius: 0;
+  }
+  .receivelast::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: -10px;
+    width: 10px;
+    height: 20px;
+    background: #f7f8f9;
+    border-bottom-right-radius: 10px;
+  }
+  .check-container {
+    position: relative;
+    width: 1rem;
+  }
+  .check-icon {
+    font-size: 0.65rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.75rem;
+    width: 1rem;
+    position: absolute;
+  }
+  .double {
+    left: 0.25rem;
+  }
+  .message-inf {
+    display: flex;
+    justify-content: flex-end;
+    height: 0.75rem;
+  }
+  .time-sm {
+    font-size: 0.75rem;
+  }
+  .slide-up {
+    animation: slide-up .2s ease-out forwards;
+  }
+  @keyframes slide-up {
+    0% {
+      transform: translateY(5px) scale(.8);
+    }
+    100% {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  .snippet {
+    position: absolute;
+    left: 2rem;
+    top: -2rem;
+  }
+  .dot-elastic {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    /*
+    background-color: #9880ff;
+    color: #9880ff;
+    */
+    background-color: mediumaquamarine;
+    color: mediumaquamarine;
+    animation: dot-elastic 1s infinite linear;
+  }
+  .dot-elastic::before, .dot-elastic::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  .dot-elastic::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: mediumaquamarine;
+    color: mediumaquamarine;
+    animation: dot-elastic-before 1s infinite linear;
+  }
+  .dot-elastic::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: mediumaquamarine;
+    color: mediumaquamarine;
+    animation: dot-elastic-after 1s infinite linear;
+  }
+  
+  @keyframes dot-elastic-before {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1.5);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  @keyframes dot-elastic {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 1.5);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  @keyframes dot-elastic-after {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  .header {
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    height: 100%;
+    position: relative;
+  }
+  .header-text {
+    font-size: 1rem;
+  }
+  .text-wrapper {
+    font-size: 0.85rem;
+  }
+  .turnoff {
+    margin-bottom: 0.75rem;
+  }
+  .header-auth {
+    border-bottom: 1px solid #646d8c;
+    height: 3.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1; 
+    padding: 0.25rem 0.5rem;  
+  }
+  .maximize {
+    position: fixed;
+    left: 50%;
+    top: .5rem;
+    opacity: .5;
+  }

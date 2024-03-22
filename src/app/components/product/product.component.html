@@ -1,0 +1,25 @@
+<ng-container *ngIf="loaded; else temp">
+
+    <div class="container">
+        <div class="bcca-breadcrumb" *ngIf="product.type === 1">
+            <div class="bcca-breadcrumb-item" routerLink="/cars">ავტომანქანები</div>
+            <div class="bcca-breadcrumb-item" routerLink="/">მთავარი</div>
+        </div>
+        <div class="bcca-breadcrumb" *ngIf="product.type === 0">
+            <div class="bcca-breadcrumb-item">{{product.categorY.name}}</div>
+            <div class="bcca-breadcrumb-item" routerLink="/">მთავარი</div>
+        </div>
+        <div class="product-container">
+            <app-gallery [images]="product.images" [product]="product" class="app-gallery" (favorited)="addToFavorites()"></app-gallery>
+            <app-price [priceObj]="priceObj" [type]="product.type" class="app-price" *ngIf="!mobsize" (addToCart)="addToCart()"></app-price>
+            <app-info [product]="product" class="app-info" (comment)="writeComment($event)" (review)="loadReviews()"></app-info>
+            <app-review [comments]="product.comments" [productId]="product.id"></app-review>
+            <app-similars [products]="similars" [category]="product.categorY?.name"></app-similars>
+            <app-fixedprice [priceObj]="priceObj" *ngIf="mobsize" [discount]="product.discount" (addToCart)="addToCart()"></app-fixedprice>
+        </div>
+    
+    </div>
+</ng-container>
+<ng-template #temp>
+    <app-skeleton [full]="true"></app-skeleton>
+</ng-template>

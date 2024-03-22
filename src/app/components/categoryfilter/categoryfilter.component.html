@@ -1,0 +1,83 @@
+<div class="filter-container">
+    
+    <div class="filter-wrapper">
+        <div class="flex" touch>
+            <span class="filter weight">
+                ფილტრი
+            </span>
+            <mat-icon class="maximize">maximize</mat-icon>
+            <span class="mob" (click)="closed()">
+                <mat-icon class="icon m">close</mat-icon>
+            </span>
+            <span class="desk" (click)="filter()" matTooltip="ფილტრის ჩაკეცვა">
+                <mat-icon class="icon d">close</mat-icon>
+            </span>
+        </div>
+        
+       <mat-divider></mat-divider>
+        <div class="flex col gap">
+            <div class="category-desc">
+                <span class="filter weight">
+                    კატეგორიები
+                </span>
+                <span class="filter" (click)="clearselect()">
+                    გასუფთავება
+                </span>
+            </div>
+            <div class="w100">
+                <mat-form-field class="w90">
+                   
+                     <mat-label>ქვეკატეგორიები</mat-label>
+                     <mat-select [multiple]="true" [formControl]="categories">
+                        <mat-select-trigger>
+                        {{categories.value?.[0] || ''}}
+                           <span class="example-additional-selection" *ngIf="(categories.value?.length || 0) > 1">
+                             (+{{(categories.value?.length || 0) - 1}} {{categories.value?.length === 2 ? 'სხვა' : 'სხვები'}})
+                           </span>
+            
+                        </mat-select-trigger>
+                      
+                        <ng-container *ngFor="let item of categoryFilter">
+                            <mat-option [value]="item.title">
+                                <div class="flexing">
+                                    <img [src]="item.image" class="example-option-img" height="20">
+                                    <div class="flexing">
+                                        <span class="aft flexing">Toyota {{item.title}}</span>
+                                        <small class="year font">{{item.year}}წ</small>
+                                    </div>
+                                </div>
+                            </mat-option>
+
+                        </ng-container>
+    </mat-select>
+                </mat-form-field>
+                
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="flex col">
+            <div class="filter">
+                ფასი
+            </div>
+            <div class="price">
+                <mat-slider class="slider" [min]="5" [max]="1000">
+                    <input matSliderStartThumb [(ngModel)]="inpstart" (ngModelChange)="changed($event)">
+                    <input matSliderEndThumb [(ngModel)]="inpend" (ngModelChange)="changed($event)">
+                </mat-slider>
+            </div>
+            <div class="input-price">
+                <mat-form-field appearance="outline" class="inp">
+                    <mat-label>დან</mat-label>
+                    <input matInput placeholder="5₾" [(ngModel)]="inpstart" (ngModelChange)="changed($event)">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="inp">
+                    <mat-label>მდე</mat-label>
+                    <input matInput placeholder="1000₾" [(ngModel)]="inpend" (ngModelChange)="changed($event)">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="submit">
+            <button mat-raised-button color="primary">გაფილტვრა</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="reviews-container">
+  <div class="reviews">
+    პროდუქტის შეფასებები
+  </div>
+</div>
+<div class="slider-container" >
+    <div class="slider-div" #list appFlowslider (slided)="slided($event)">
+        <ng-container *ngFor="let item of comments; index as i">
+            <div class="slider-flex-container" (click)="activated(i)" #carouselitem [ngClass]="getClass(i)" [class.center]="i === 1">
+                <div class="slider-flex-card">
+                    <figure class="snip1157">
+                        <blockquote>
+                          <div class="comment">{{item.comment}}</div>
+                          <div class="arrow"></div>
+                        </blockquote>
+                        <div class="img-wrapper">
+                            <img src="../../../assets/userlogo.jpg" alt="sq-sample3" class="user-logo"/>
+                            <div class="author">
+                              <h5 class="author-name"></h5>
+                              <div class="desc-content least_hor">
+                              <div *ngFor="let it of starArray">
+                                <mat-icon class="starred">
+                                  {{showIcon(it, item.review.rate)}}
+                                </mat-icon>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                      </figure>
+                    
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <button mat-icon-button class="left" (click)="activated(0)">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-icon-button class="right" (click)="activated(2)">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>
+
+<!--
+<figure class="snip1157">
+    <blockquote>ძაან კარგი პროდუქტი იყო, მე ვიყიდე და ძაან მომეწონა
+      <div class="arrow"></div>
+    </blockquote>
+    <img src="../../../assets/userlogo.jpg" alt="sq-sample3" />
+    <div class="author">
+      <h5 class="author-name">ნიკა გოხაძე</h5>
+      <div class="desc-content least_hor">
+      <div *ngFor="let item of starArray" (click)="stars(item)">
+        <mat-icon class="starred">
+          {{showIcon(item)}}
+        </mat-icon>
+    </div>
+    </div>
+    </div>
+  </figure>
+-->
+<div class="see-all-wrapper">
+  <div class="see-all-flex" (click)="openReviews()">
+      ყველა შეფასების ნახვა
+      <mat-icon class="see-all-icon">keyboard_arrow_right</mat-icon>
+  </div>
+</div>

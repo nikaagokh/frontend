@@ -1,0 +1,194 @@
+<div class="container" [formGroup]="formGroup">
+    <!--
+    <div class="gap">
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>მწარმოებელი</mat-label>
+            <mat-icon matPrefix class="icon"> directions_car</mat-icon>
+            <mat-select formControlName="brand">
+                <ng-container *ngFor="let item of root">
+                    <mat-option [value]="item.id">{{item.name}}</mat-option>
+                </ng-container>
+                    
+                  
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>დაამატე მწარმოებელი</mat-label>
+            <input type="text" matInput formControlName="brandAdd">
+        </mat-form-field>
+        <label for="file-upload1" class="custom-file-uploader">
+            <mat-icon>attach_file</mat-icon>
+        </label>
+        <input type="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg" (change)="imageHandler($event)" id="file-upload1">
+        <button mat-icon-button (click)="add(1)">
+            <mat-icon class="icon">playlist_add</mat-icon>
+        </button>
+    </div>
+    <div class="gap">
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>მოდელი</mat-label>
+            <mat-icon matPrefix class="icon"> directions_car</mat-icon>
+            <mat-select formControlName="model">
+                <ng-container *ngFor="let item of subcategories; index as i">
+                    <mat-option [value]="item">{{item.name}}</mat-option>
+                </ng-container>
+                    
+                  
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>დაამატე მოდელი</mat-label>
+            <input type="text" matInput formControlName="modelAdd">
+        </mat-form-field>
+        <button mat-icon-button (click)="add(2)">
+            <mat-icon class="icon">playlist_add</mat-icon>
+        </button>
+    </div>
+    <div class="gap">
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>მოდელის წლები</mat-label>
+            <mat-select formControlName="year">
+                <ng-container *ngFor="let item of years">
+                    <mat-option [value]="item.id">{{item.range}}</mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>დაამატე მოდელის წლები</mat-label>
+            <input type="text" matInput formControlName="yearAdd">
+        </mat-form-field>
+        <button mat-icon-button (click)="add(3)">
+            <mat-icon class="icon">playlist_add</mat-icon>
+        </button>
+    </div>
+    <div class="gap">
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>კატეგორია</mat-label>
+            <mat-icon matPrefix class="icon"> directions_car</mat-icon>
+            <mat-select formControlName="relation" [multiple]="true">
+                <ng-container *ngFor="let item of tags">
+                    <mat-option [value]="item.id">{{item.name}}</mat-option>
+                </ng-container>
+                    
+                  
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>დაამატე კატეგორია</mat-label>
+            <input type="text" matInput formControlName="relationAdd">
+        </mat-form-field>
+        <button mat-icon-button (click)="add(4)">
+            <mat-icon class="icon">playlist_add</mat-icon>
+        </button>
+    </div>
+   -->
+   <div class="header-cont">
+    <button mat-icon-button class="back mob" routerLink="..">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <div class="about-desc mob">
+        კატეგორიის დამატება
+    </div>
+    <div class="about-desc desk">
+        კატეგორიის დამატება
+    </div>
+</div>
+   <div class="choose-one">
+     <mat-form-field class="choose-one-field">
+        <mat-label>აირჩიეთ</mat-label>
+        <mat-select [formControl]="choosefc">
+            <mat-option value="1">მწარმოებელი</mat-option>
+            <mat-option value="2">მოდელი</mat-option>
+            <mat-option value="3">მოდელის წლები</mat-option>
+        </mat-select>
+     </mat-form-field>
+   </div>
+
+   <ng-container *ngIf="active !== undefined">
+    <div class="gap">
+        <div class="flex-col1" *ngIf="active === 1">
+            <!--
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>მწარმოებელი</mat-label>
+                <mat-icon matPrefix class="icon"> directions_car</mat-icon>
+                <mat-select formControlName="brand">
+                    <ng-container *ngFor="let item of root">
+                        <mat-option [value]="item.id">{{item.name}}</mat-option>
+                    </ng-container>
+                        
+                      
+                </mat-select>
+            </mat-form-field>
+            -->
+            <mat-form-field appearance="outline" class="w100">
+                <mat-label>დაამატე მწარმოებელი</mat-label>
+                <input type="text" matInput formControlName="brandAdd">
+            </mat-form-field>
+        </div>
+        <div class="flex-col1" *ngIf="active === 2">
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>მწარმოებელი</mat-label>
+                <mat-icon matPrefix class="icon"> directions_car</mat-icon>
+                <mat-select formControlName="brand">
+                    <ng-container *ngFor="let item of root">
+                        <mat-option [value]="item.id">{{item.name}}</mat-option>
+                    </ng-container>
+                        
+                      
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>დაამატე მოდელი</mat-label>
+                <input type="text" matInput formControlName="modelAdd">
+            </mat-form-field>
+        </div>
+        <div class="flex-col1" *ngIf="active === 3">
+            <mat-form-field class="field">
+                <mat-label>მოდელები</mat-label>
+                <mat-select formControlName="year">
+                    <mat-optgroup *ngFor="let item of root" label="{{item.name}}">
+                        <mat-option *ngFor="let sub of item?.subcategories" [value]="sub?.id">{{sub?.name}}</mat-option>
+                    </mat-optgroup>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>დაამატე მოდელის წელი</mat-label>
+                <input type="text" matInput formControlName="yearAdd">
+            </mat-form-field>
+
+        </div>
+        <div class="flex-col2" *ngIf="active === 1 || active === 3">
+            <label for="file-upload1" class="custom-file-uploader">
+                <mat-icon class="icon">attach_file</mat-icon> დაამატე ფოტო
+            </label>
+            <input type="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg" (change)="imageHandler($event)" id="file-upload1">
+        </div>
+        <br>
+        <ng-container *ngIf="images.length > 0">
+            
+                    <div class="dots-flex">
+                        <ng-container *ngFor="let image of images; let i = index">
+                            <div class="dots-wrapper bordered" (click)="arrows(0)">
+                                <!--<img [src]="image" class="dot-image">-->
+                                <img [src]="image" class="dot-image">
+                                <div class="remove" (click)="removeFile(i)">
+                                    <mat-icon class="del-icon">close</mat-icon>
+                                </div>
+                            </div>
+                        </ng-container>
+                       
+                    </div>
+               
+        </ng-container>
+        <div class="action-container">
+            <button mat-raised-button color="primary" class="butt" (click)="submit()" [disabled]="isDisabled()">
+                ცვლილებების შენახვა
+            </button>
+        </div>
+    </div>
+   </ng-container>
+</div>
+

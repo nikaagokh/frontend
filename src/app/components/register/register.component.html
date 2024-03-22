@@ -1,0 +1,90 @@
+<div class="reg-container">
+    <div class="header-reg">
+        <div class="header">
+            <button mat-icon-button class="back" (click)="back()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            რეგისტრაცია
+             <button mat-icon-button class="turnoff" (click)="close()">
+                 <mat-icon>close</mat-icon>
+             </button>
+        </div>
+    </div>
+    <div class="reg-body">
+        <div class="toaster slide-down" *ngIf="toaster">
+            <div class="toaster-message">
+                <button mat-icon-button>
+                    <mat-icon>info</mat-icon>
+                </button>
+                <div class="toaster-content">
+                    რეგისტრაციის გასავლელად, საჭიროა, რომ ყველა ველი შეავსოთ
+                </div>
+                <div (click)="toaster=false">
+                    <mat-icon class="close-sm">close</mat-icon>
+                </div>
+            </div>
+           </div>
+        <div class="form" [formGroup]="reactiveForm">
+            <div class="name-cont">
+                <mat-form-field class="field nameinput">
+                  <mat-label>სახელი</mat-label>
+                  <mat-icon matPrefix>account_circle</mat-icon>
+                  <input type="text" matInput formControlName="firstName">
+                  <mat-error></mat-error>
+                </mat-form-field>
+                <mat-form-field class="field nameinput">
+                 <mat-label>გვარი</mat-label>
+                 <mat-icon matPrefix>account_circle</mat-icon>
+                 <input type="text" matInput formControlName="lastName">
+                 <mat-error></mat-error>
+               </mat-form-field>
+            </div>
+          <mat-form-field class="field">
+            <mat-label>იმეილი</mat-label>
+            <mat-icon matPrefix>mail_outline</mat-icon>
+            <input type="email" matInput formControlName="email" name="email" autocomplete="on">
+            
+          </mat-form-field>
+          <!--
+          <mat-form-field class="field">
+            <mat-label>ელ.ფოსტა</mat-label>
+            <mat-icon matPrefix> mail_outline</mat-icon>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="reactiveForm.get('email')?.invalid && reactiveForm.get('email').touched">
+                თქვენი მეილი უნდა შეიცავდეს @ სიმბოლოს
+            </mat-error>
+        </mat-form-field>
+          -->
+          <ng-container formGroupName="pass">
+              <mat-form-field class="field">
+                <mat-icon matPrefix>lock</mat-icon>
+                <mat-label>პაროლი</mat-label>
+                <input [type]="ptype ? 'text' : 'password'" matInput formControlName="password">
+            </mat-form-field>
+            <mat-form-field class="field">
+                <mat-icon matPrefix>lock</mat-icon>
+                <mat-label>გაიმეორეთ პაროლი</mat-label>
+                <input [type]="ptype ? 'text' : 'password'" matInput formControlName="repassword">
+                <!--
+                <mat-error  *ngIf="(reactiveForm.get('pass').get('password').hasError('pattern') && 
+                reactiveForm.get('pass').get('password')?.touched) || 
+                (reactiveForm.get('pass').get('repassword').hasError('pattern') && 
+                reactiveForm.get('pass').get('repassword')?.touched)">
+                თქვენი პაროლი უნდა შეიცავდეს მინიმუმ 1 დიდ სიმბოლოს და ერთ რიცხვს
+                </mat-error>
+                -->
+                <mat-error *ngIf="reactiveForm.get('pass').hasError('errorMatch')">
+                    პაროლები არ ემთხვევა ერთმანეთს
+                </mat-error>
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngIf="error">
+            <div class="register-failed">მსგავსი მეილით მომხმარებელი უკვე არსებობს</div>
+          </ng-container>
+          <button mat-raised-button color="primary" class="button" (click)="register()">
+            რეგისტრაცია
+        </button>
+       
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="main-container" *ngIf="messages">
+    <div class="chat-container" #chatcontainer id="chat-cont" [class.chat-background]="auth">
+        <div class="header-auth" touch (closed)="clicked()">
+            <div class="header">
+                შეტყობინება
+                <ng-container *ngIf="online && auth">
+
+                    <div class="abs online">online</div>
+                </ng-container>
+                <ng-container *ngIf="!online && auth">
+                    <div class="abs offline">offline</div>
+                </ng-container>
+                    
+                
+                 <div class="turnoff" (click)="clicked()" matTooltip="ჩაკეცვა">
+                     <mat-icon>minimize</mat-icon>
+                 </div>
+            </div>
+        </div>
+            <div class="chat-body" #chatbody [class.margin-bottom]="typing">
+                <ng-container *ngIf="!auth; else authed">
+                    <div class="toaster slide-down">
+                        <div class="toaster-message">
+                            <button mat-icon-button>
+                                <mat-icon>info</mat-icon>
+                            </button>
+                            <div class="toaster-content">
+                                Live მიმოწერისთვის გაიარეთ რეგისტრაცია, ან ავტორიზაცია
+                            </div>
+                            
+                        </div>
+                       </div>
+                       <div class="form">
+                        <div class="button-container-flex">
+                            <button mat-raised-button class="button lightgray" (click)="register()">
+                                რეგისტრაცია
+                            </button>
+                            <button mat-raised-button class="button dodge" (click)="authorization()" color="primary">
+                                ავტორიზაცია
+                            </button>
+                        </div>
+                    </div>
+                </ng-container>
+    
+                <ng-template #authed>
+                        <div class="chat-flex" #chatflex id="chat-flex">
+                            <div class="intersecting" intersect (inView)="loadMore($event)"></div>
+                            <ng-container *ngIf="messages.length > 0; else emptymessages">
+    
+                                <ng-container *ngFor="let item of messages">
+                                    <div class="date">{{item.date}}</div>
+                                    <ng-container *ngFor="let message of item.messages">
+                                        <div class="message-wrapper slide-up" [class.send]="message.sent" [class.sendlast]="message.last && message.sent" [class.receive]="!message.sent" [class.receivelast]="message.last && !message.sent">
+                                            <div class="text-wrapper">{{message?.content}}</div>
+                                            <div class="message-inf">
+                                                <span>{{message.time}}</span>
+                                                <div class="check-container" *ngIf="message.sent">
+                                                    <mat-icon class="check-icon">check</mat-icon>
+                                                    <mat-icon class="check-icon double">check</mat-icon>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                            <ng-template #emptymessages>
+                                    
+                                
+                            </ng-template>
+                        </div>
+                 
+                   
+                </ng-template>
+            </div>
+        </div>
+        <div class="chat-footer" *ngIf="auth">
+            <div class="search-md">
+            <input type="text" placeholder="" class="outside" [formControl]="fc" (keydown)="handleKeyDown($event)" (focus)="manageTyping(true)" (blur)="manageTyping(false)">
+            <mat-icon class="send-message-icon" (click)="handleClick()">send</mat-icon>
+            <!--
+                <span *ngIf="searchedInput.length > 0">
+                <mat-icon class="outside closed" (click)="closeOverlay()">close</mat-icon>
+            </span>
+            -->
+        </div>
+    
+        <div class="snippet" data-title="dot-elastic" *ngIf="typing">
+            <div class="stage">
+              <div class="dot-elastic"></div>
+            </div>
+        </div>
+    </div>
+</div>

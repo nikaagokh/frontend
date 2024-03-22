@@ -1,0 +1,88 @@
+<div class="header">
+   
+    <div class="header-container">
+     <div class="header-left">
+         <button mat-icon-button class="menu" (click)="menuMob()">
+             <mat-icon>menu</mat-icon>
+         </button>
+         
+         <div class="logo-wrapper" routerLink="/">
+             <div class="log">
+                 VG<span class="lg">Parts</span>
+             </div>
+             <img src="../assets/car-logo.png" class="img">
+         </div>
+         
+         <div class="desktop horizontal" (click)="menuDesktop()">
+             <mat-icon>menu</mat-icon>
+             კატეგორიები
+             <mat-icon>keyboard_arrow_down</mat-icon>
+         </div>
+     </div>
+     <div class="header-right">
+         <button mat-icon-button class="search-sm" (click)="openSearchMob()">
+             <mat-icon>search</mat-icon>
+         </button>
+         <div class="search-md">
+             <mat-icon class="search-md-icon outside">search</mat-icon>
+             <input type="text" placeholder="ძიება" [formControl]="searchDesktopForm" class="outside" searchDesk [searchInf]="searchedInput" (closed)="closeInputDesktop()">
+             <!--
+             <span *ngIf="searchedInput.length > 0">
+                 <mat-icon class="outside closed" (click)="closeOverlay()">close</mat-icon>
+             </span>
+             -->
+         </div>
+          
+         <div class="search-decoration" (click)="openSearchMob()">
+             <mat-icon class="search-md-icon">search</mat-icon>
+             <input type="text" placeholder="ძიება">
+         </div>
+         <div class="right-cont">
+             <button mat-icon-button class="favorites" (click)="miniFavorites()">
+                 
+                 <mat-icon [matBadge]="favNumber > 0 ? favNumber : ''" matBadgeSize="small">favorite_border</mat-icon>
+             </button>
+             
+             <button mat-icon-button class="cart_icon" (click)="miniCart()">
+                 <mat-icon [matBadge]="cartNumber" matBadgeSize="small">card_travel</mat-icon>
+             </button>
+             <button mat-icon-button class="account" (click)="openAuthentication()">
+                 <mat-icon>perm_identity</mat-icon>
+             </button>
+         </div>
+         <div class="right-cont-midd">
+             <button mat-icon-button class="account" matTooltip="ანგარიში" (click)="openAuthentication()">
+                 
+                 <mat-icon>perm_identity</mat-icon>
+             </button>
+             <button mat-icon-button class="favorites" matTooltip="ფავორიტები" hovfav>
+                 
+                 <mat-icon [matBadge]="favNumber" matBadgeSize="small">favorite_border</mat-icon>
+             </button>
+             <button mat-icon-button class="cart_icon" hovout>
+                 <mat-icon [matBadge]="cartNumber" matBadgeSize="small">card_travel</mat-icon>
+             </button>
+         </div>
+         <div class="right-cont-desktop">
+             <div class="desktop" (click)="openAuthentication()">
+                 <mat-icon>perm_identity</mat-icon>
+                 ანგარიში
+             </div>
+             <div class="desktop" hovfav>
+                 <mat-icon [matBadge]="favNumber" matBadgeSize="small">favorite_border</mat-icon>
+                 ფავორიტები
+             </div>
+             <div class="desktop" hovout>
+                 <mat-icon [matBadge]="cartNumber" matBadgeSize="small">card_travel</mat-icon>
+                 კალათა
+                
+             </div>
+         </div>
+     </div>
+    </div>
+   
+     
+ </div>
+ 
+ 
+ 

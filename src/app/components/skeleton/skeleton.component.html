@@ -1,0 +1,32 @@
+<ng-container *ngIf="full; else temp">
+    <div class="cards">
+        <div class="card is-loading full">
+            <div class="image mob"></div>
+            <div class="content">
+                <h2 class="line"></h2>
+                <p class="line more"></p>
+            </div>
+        </div>
+        <div class="cardbody">
+            <div class="wrapper" *ngFor="let item of [1,2,3,4,5]">
+                <h2 class="line one"></h2>
+                <h2 class="line two"></h2>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-template #temp>
+    <div class="cards">
+        <div class="card is-loading" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">
+            <div class="image"></div>
+            <div class="content">
+              <h2 class="line"></h2>
+              <p class="line more"></p>
+            </div>
+      
+      </div>
+    </div>
+</ng-template>
+

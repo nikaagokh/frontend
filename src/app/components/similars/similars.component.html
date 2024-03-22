@@ -1,0 +1,108 @@
+<div #list tabindex="0" class="list-outline">
+    <ng-container *ngIf="products.length > 0">
+    
+        <div class="carousel-container">
+            <div class="carousel-header">
+                <div class="header-wrapper">
+                    <div class="buttons">
+                        მსგავსი პროდუქტები
+                    </div>
+                    <div class="nav">
+                        <button mat-icon-button (click)="previous()" class="nav-button">
+                            <mat-icon>keyboard_arrow_left</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="next()" class="nav-button">
+                            <mat-icon>keyboard_arrow_right</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- [appPointer]="carousel" [max]="productArray.length" (page)="pos($event)" [size]="size" es mewera flex-shi -->
+            <div class="product-touch" [appSlider]="slide" [max]="products.length" (page)="changePos($event)">
+                <div class="product-flex">
+                        <ng-container *ngFor="let item of products">
+                            <div class="product-card" size #listitem tabindex="0">
+                                <div [routerLink]="['/product', item.id]">
+                                    <div class="image-wrapper">
+                                        <div class="image-cont">
+                                            <img src="{{url}}{{item.images[0]?.path}}" class="image">
+                                        </div>
+                                        <div class="actions-desktop"></div>
+                                    </div>
+                                    <div class="product-title">
+                                        <div>{{item.nameGeo}}</div>
+                                        <div class="category-marg" *ngIf="item.type === 0">{{category}}</div>
+                                        <div class="stock" *ngIf="item.type === 1">
+                                            <ng-template [ngIf]="item.available ===1">
+                                                <mat-icon class="stock-icon in">check_box</mat-icon>
+                                                <span class="in">გასაქირავებელი</span>
+                                            </ng-template>
+                                            <ng-template [ngIf]="item.available === 0">
+                                                <mat-icon class="stock-icon out">indeterminate_check_box</mat-icon>
+                                                <span class="out">გაქირავებული</span>
+                                                
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <div class="fl gaps">
+                                            <span class="fl dot">
+                                                {{item.price | price}}
+                                                <sup class="subprice">
+                                                    .00
+                                                </sup>
+                                            </span>
+                                            <span>
+                                                ₾.
+                                            </span>
+                                             <mat-divider [vertical]="true"></mat-divider>
+                                             <div class="oldprice" *ngIf="item.type === 0">
+                                                <span class="fl line-through">
+                                                    {{oldPrice(item.price, item.discount)}}
+                                                    <sup class="subprice">
+                                                        .00
+                                                    </sup>
+                                                </span>
+                                                <span class="crimson">
+                                                    ₾.
+                                                </span>
+
+                                            </div>
+                                            <div class="daily" *ngIf="item.type === 1">
+                                               დღიურად
+                                            </div>
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="actions-mobile">
+                                    <div class="action-left">
+                                        <button mat-icon-button (click)="zoomIn(item.images[0]?.path)">
+                                            <mat-icon>zoom_in</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="addFavorites(item)">
+                                            <mat-icon class="icon" [class.clickIn]="animate===item.id">{{isFavorite(item) ? 'favorite' : 'favorite_border'}}</mat-icon> 
+                                        </button>
+                                        
+                                    </div>
+                                    <div class="action-right">
+                                        <button mat-icon-button (click)="addToCart(item)">
+                                            <mat-icon>card_travel</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="discount">
+                                    -{{item.discount}}%
+                                </div>
+                            </div>
+                        </ng-container>
+                          
+                      
+                    
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+

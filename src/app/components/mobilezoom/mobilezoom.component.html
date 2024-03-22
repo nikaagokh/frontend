@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="header-zoom" touch (closed)="closed()" >
+        <div class="header">
+            გალერია
+             <mat-icon class="maximize">maximize</mat-icon>
+             <button mat-icon-button class="turnoff" (click)="closed()">
+                 <mat-icon>close</mat-icon>
+             </button>
+        </div>
+    </div>
+    <div class="zoom-number">
+        {{scale.toFixed(1)}}X
+    </div>
+    <div class="img-container">
+        <img src="{{url}}/{{imageArray[active]}}" pinchzoom [scale]="scaleObj" (zoom)="zoom($event)">
+        <div class="left" *ngIf="imageArray.length === 0">
+            <button mat-icon-button (click)="left()" matTooltip="წინა">
+                <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+        <div class="right" *ngIf="imageArray.length === 0">
+            <button mat-icon-button (click)="right()" matTooltip="შემდეგი">
+                <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="action-container">
+        
+        <div class="zoom" (click)="zoomIn()">
+            <div class="zoom-wrapper">
+                <mat-icon class="icon">zoom_in</mat-icon>
+                გადიდება
+            </div>
+        </div>
+        <div class="zoom" (click)="zoomOut()">
+            <div class="zoom-wrapper">
+                <mat-icon class="icon">zoom_out</mat-icon>
+                შემცირება
+            </div>
+        </div>
+    </div>
+    
+
+
+</div>

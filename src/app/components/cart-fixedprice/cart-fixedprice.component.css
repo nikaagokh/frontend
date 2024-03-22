@@ -1,0 +1,237 @@
+:host {
+    display: block;
+}
+
+.price-container {
+    position: fixed;
+    bottom: 4rem;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 4;
+    transition: bottom .1s ease-in-out;
+    background-color: #fff;
+    color: #231444;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+.price-desc {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.price-acc {
+    display: flex;
+    gap: 1rem;
+    
+}
+.price-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+}
+.minus-button {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 30px 0 0 30px;
+    width: 3rem;
+    min-width: unset!important;
+    color: #646d8c;
+    touch-action: none;
+}
+.plus-button {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 0 30px 30px 0;
+    width: 3rem!important;
+    min-width: unset!important;
+    color: #646d8c;
+    touch-action: none;
+}
+.number-button {
+    column-gap: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: #f7f8f9;
+    border: 0.0625 solid #e5e7f1;
+    width: 5rem;
+    height: 95%;
+    flex-grow: 1;
+}
+.numb {
+    color: #646d8c;
+    font-size: .875rem;
+    font-weight: 400;
+}
+.add {
+    color: #646d8c;
+}
+.price {
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+.subprice {
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+.price-discount {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.price-discount::after {
+    content: '';
+    width: 1px;
+    height: 30%;
+    top: 35%;
+    bottom: 35%;
+    background-color: black;
+    right: -0.5rem;
+    position: absolute;
+}
+.price-gel {
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+.price-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+.buy-button {
+    background-color: #5b932b!important;
+    color: white!important;
+}
+.actions {
+    width: 50%;
+    border-radius: 1rem;
+}
+.bottom {
+    bottom: 0;
+}
+.oldprice {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    color: #646d8c;
+}
+.old {
+    text-decoration: line-through; 
+}
+.danazogi {
+    display: none;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    border: 2px solid #f7f8f9;
+    border-radius: 1rem;
+    color: #5b932b;
+}
+.gap {
+    gap: 0.25rem;
+}
+.action-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+@media (min-width:675px) {
+    .danazogi {
+        display: flex;
+    }
+    .oldprice {
+        display: flex;
+    }
+    .price-number {
+        width: 40%;
+    }
+}
+@media (min-width:992px) {
+    :host {
+        display: none;
+    }
+}
+.price-cart {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    
+}
+.sale {
+    color: crimson;
+}
+.total {
+    color: #231444;
+}
+.oldpric {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: crimson;
+}
+.old {
+    text-decoration: line-through; 
+}
+.sm {
+    font-size: 1.25rem;
+}
+.danazog {
+    display: flex;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    border: 2px solid #f7f8f9;
+    border-radius: 1rem;
+    color: #5b932b;
+}
+.flexing {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.butt {
+    width: 50%;
+    border-radius: 1rem;
+}
+.nonscroll {
+    display: none;
+}
+.delivery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    cursor: pointer;
+    border: 1px solid #e5e7f1;
+    font-size: 0.9rem;
+    font-weight: 700;
+    gap: 0.25rem;
+    color: #253988;
+}
+.back-button {
+    border: 1px solid #646d8c;
+    padding: 1rem;
+    background-color: #f7f8f9!important;
+    width: 50%;
+}
+.tel {
+    text-decoration: none;
+    color: #253988;
+}
+@media (min-width:768px) {
+    .gap {
+        align-items: center;
+    }
+    .flexing {
+        width: 100%;
+    }
+}

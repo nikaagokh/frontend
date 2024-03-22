@@ -1,0 +1,33 @@
+<div class="category-container">
+    <div class="category-col" #list tabindex="0" >
+        <div class="category-desc">
+            
+            <div class="buttons">
+                კატეგორიები
+            </div>
+        </div>
+        <div class="category-body">
+                        <div class="category-flex" [dot]="carousel">
+                                <div class="col" *ngFor="let item of categories">
+                                    <div class="desk" tabindex="0" #listitem>
+                                        <div class="img-wrapper">
+                                            <img src="{{url}}/{{item.image}}" class="img">
+                                        </div>
+                                        {{item.name}}
+                                    </div>
+                                </div>
+                    
+            </div>
+        </div>
+        <div class="dots">
+            <span class="swiper-gen" [class.activated]="carousel===0" (click)="changeDot(0)"></span>
+            <span class="swiper-gen" [class.activated]="carousel===1" (click)="changeDot(1)"></span>
+            <span class="swiper-gen" [class.activated]="carousel===2" (click)="changeDot(2)"></span>
+            <span class="swiper-gen" [class.activated]="carousel===3" (click)="changeDot(3)"></span>
+            <span class="swiper-gen lastdot" [class.activated]="carousel===4" (click)="changeDot(4)"></span>
+            
+        </div>
+    </div>
+</div>
+
+

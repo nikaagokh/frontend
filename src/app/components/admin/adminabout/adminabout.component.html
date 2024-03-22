@@ -1,0 +1,40 @@
+<div class="about-container" *ngIf="loaded; else skeleton">
+    <div class="header-wrapper">
+        <button mat-icon-button class="back" routerLink="..">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <div class="about-desc">
+            პირადი ინფორმაცია
+        </div>
+        <div class="about-desc">
+            <mat-icon> beenhere</mat-icon>
+        </div>
+    </div>
+    <div class="information-wrapper">
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>სახელი</mat-label>
+            <mat-icon matPrefix> person_pin_circle</mat-icon>
+            <input type="text" matInput [(ngModel)]="user.firstName" disabled="true">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>გვარი</mat-label>
+            <mat-icon matPrefix> person_pin_circle</mat-icon>
+            <input type="text" matInput [(ngModel)]="user.lastName" disabled="true">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>ემაილი</mat-label>
+            <mat-icon matPrefix> mail_outline</mat-icon>
+            <input type="text" matInput [(ngModel)]="user.email" disabled="true">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>ნომერი</mat-label>
+            <mat-icon matPrefix> call</mat-icon>
+            <input type="text" matInput [(ngModel)]="user.phone" disabled="true">
+        </mat-form-field>
+        
+    </div>
+</div>
+<ng-template #skeleton>
+    <app-skeleton [more]="true"></app-skeleton>
+</ng-template>
+

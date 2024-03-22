@@ -1,0 +1,53 @@
+ <div class="messages-container" #chatcontainer>
+        <div class="header-auth">
+            <div class="header">
+                <div class="back" (click)="back()">
+                    <mat-icon>arrow_back</mat-icon>
+                </div>
+                <span class="header-text">{{submessage.person}}</span>
+                 <div class="turnoff" (click)="close()" matTooltip="ჩაკეცვა">
+                     <mat-icon>minimize</mat-icon>
+                 </div>
+            </div>
+        </div>
+        <div class="chat-flex" #chatflex id="chat-flex" [class.margin-bottom]="typing">
+            <div class="intersecting" intersect (inView)="loadMore($event)"></div>
+            <ng-container *ngIf="messages.length > 0">
+    
+                <ng-container *ngFor="let item of messages">
+                    <div class="date">{{item.date}}</div>
+                    <ng-container *ngFor="let message of item.messages">
+                        <div class="message-wrapper" [class.send]="message.sent" [class.sendlasti]="message.last && message.sent" [class.receive]="!message.sent" [class.receivelasti]="message.last && !message.sent">
+                            <div class="text-wrapper">{{message.content}}</div>
+                            <div class="message-inf">
+                                <span class="time-sm">{{message.time}}</span>
+                                <div class="check-container" *ngIf="message.sent">
+                                    <mat-icon class="check-icon">check</mat-icon>
+                                    <mat-icon class="check-icon double">check</mat-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+    
+        </div>
+    </div>
+        <div class="chat-footer">
+            <div class="search-md">
+            <input type="text" placeholder="" class="outside" [formControl]="fc" (keydown)="handleKeyDown($event)" #inp>
+            <mat-icon class="send-message-icon" (click)="handleClick()">send</mat-icon>
+            <!--
+                <span *ngIf="searchedInput.length > 0">
+                <mat-icon class="outside closed" (click)="closeOverlay()">close</mat-icon>
+            </span>
+            -->
+            <div class="snippet" data-title="dot-elastic" *ngIf="typing">
+                <div class="stage">
+                  <div class="dot-elastic"></div>
+                </div>
+            </div>
+    </div>
+    </div>
+
+

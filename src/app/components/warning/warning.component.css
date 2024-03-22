@@ -1,0 +1,45 @@
+.toaster {
+    background-color: rgba(255, 231, 230, 0.7);
+    border: solid #ff5757;
+    border-width: 0 0 0 6px;
+    color: #ff5757;
+    margin: 0 0 1rem 0;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 350px;
+}
+.toaster-message {
+    padding: 1rem;
+    border-width: 0 0 0 6px;
+    display: flex;
+    align-items: center;
+}
+.slide-down {
+    animation:  slide-down .4s ease-out forwards;
+}
+.label {
+    font-size: 0.7rem;
+}
+@keyframes slide-down {
+    0% {
+      transform: translateY(-1rem) scale(.8);
+      opacity: .3;
+    }
+    100% {
+      transform: none;
+      opacity: 1;
+    }
+}
+
+.toaster-content {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 0.5rem 0.5rem 0.25rem
+}
+.close-sm {
+    font-size: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,53 @@
+<div class="minicart-container">
+    <div class="header-bottom" touch (closed)="clicked()">
+        <div class="header">
+             ფავორიტები
+             <mat-icon class="maximize">maximize</mat-icon>
+             <button mat-icon-button class="turnoff" (click)="clicked()">
+                 <mat-icon>close</mat-icon>
+             </button>
+        </div>
+
+    </div>
+    <ng-container *ngIf="favArray.length > 0; else temp">
+        <mat-list>
+            <ng-container *ngFor="let item of favArray; last as isLast">
+                <mat-list-item class="list-item">
+                    <img matListItemAvatar src="{{url}}{{item.images[0].path}}">
+                    <h3 matListItemTitle>{{item.nameGeo}}</h3>
+                    <span matListItemLine>ფასი : {{item.price}} ₾</span>
+                   
+                    <div matListItemMeta (click)="removeItem(item)">
+                        <mat-icon class="sale">delete</mat-icon>
+                    </div>
+                </mat-list-item>
+                <mat-divider *ngIf="!isLast"></mat-divider>
+            </ng-container>
+        </mat-list>
+    </ng-container>
+    <ng-template #temp>
+        <div class="empty-cart">
+            <div class="img-wrapper">
+                <img src="../../../assets/favs.png" class="empty-img">
+    
+            </div>
+            <div class="message-wrapper">
+                <div class="message">ფავორიტების სია ცარიელია !</div>
+                <button mat-raised-button color="primary">უკან დაბრუნება</button>
+            </div>
+        </div>
+    </ng-template>
+   
+</div>
+<mat-divider></mat-divider>
+<ng-container *ngIf="favArray.length > 0">
+<div class="fav-actions">
+    
+            <button mat-button class="category button" (click)="routerLink()">შოპინგი</button>
+            <button mat-button class="buy-button actions button" (click)="detailedFavorites()">
+                დეტალურად
+            </button>
+</div>
+    
+</ng-container>
+

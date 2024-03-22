@@ -1,0 +1,13 @@
+<div class="toaster slide-down">
+    <div class="toaster-message">
+        <button mat-icon-button>
+            <mat-icon>done</mat-icon>
+        </button>
+        <div class="toaster-content">
+            {{text}}
+        </div>
+        <div (click)="close()">
+            <mat-icon class="close-sm">close</mat-icon>
+        </div>
+    </div>
+</div>

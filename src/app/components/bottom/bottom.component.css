@@ -1,0 +1,42 @@
+:host {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    height: 4rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 0.25rem;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 0 -0.33px #23144414, 0 -1px 4px #311f580a;
+    color: #253988;
+    font-size: 0.7rem;
+}
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    
+
+}
+.bag-img {
+    width: 1.75rem;
+    color: #253988;
+    border-radius: 50%;
+}
+.img-cart {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+@media (min-width:776px) {
+    :host {
+        font-size: 0.85rem;
+    }
+}
+@media (min-width:992px) {
+    :host {
+        display: none;
+    }
+}

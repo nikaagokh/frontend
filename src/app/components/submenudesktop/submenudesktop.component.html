@@ -1,0 +1,24 @@
+<div class="submenu-container">
+    <div class="submenu-wrapper">
+        <ng-container *ngFor="let item of submenu; index as i">
+            <ng-container *ngFor="let year of item.cyear">
+                <div class="submenu-card" (click)="changeRoute(year.id, item.id)">
+                    <div class="card-flexcol">
+                        <div class="img-wrapper">
+                            <img class="img" src="{{url}}{{year.imageUrl}}">
+                            
+                        </div>
+                        <div class="desc">
+                            <span class="title">{{item.name}}</span>
+                            <span class="title">{{year.range}}წ</span>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+       
+    </div>
+</div>

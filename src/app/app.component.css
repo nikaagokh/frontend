@@ -1,0 +1,255 @@
+.cont {
+    height: 200vh;
+}
+.fab-message {
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    color:#5b932b;
+    z-index: 2;
+    background-color: #f7f8f9;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+}
+.up {
+  bottom: 13rem;
+}
+
+.fab-message button {
+    border: 1px solid lightgray;
+}
+.fixed-scrolled {
+  transform: translateY(-100%)!important;
+}
+.chat-popup {
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    transition: all .3s ease-out;
+    opacity: 0;
+    transform: scale(.3) translateY(10px);
+  }
+  
+  
+  .form-container {
+    width: 300px;
+    
+    padding: 10px;
+    background-color: white;
+  }
+  
+
+  .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 170px;
+  }
+  
+  .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+.visible {
+    opacity: 1;
+    transform: none;
+}
+.avatar-img {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    border-radius: 60%;
+}
+.avat {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+.avat::after {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+.avat::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #006767;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  @keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.25);
+        opacity: .3;
+    }
+}
+.avatar {
+    display: flex;
+    justify-content: space-between;
+}
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #f7f8f9;
+}
+@media (min-width:768px) {
+  .container {
+    margin-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width:992px) {
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 6rem;
+  }
+}
+@media (min-width:1136px) {
+  .container {
+    max-width: 1000px;
+    margin: 7rem auto 0 auto;
+  }
+}
+@media (min-width:1400px) {
+  .container {
+    max-width: 1380px;
+    margin: 8rem auto 0 auto;
+  }
+}
+
+.banner {
+  width: 100%;
+  box-sizing: border-box;
+}
+.qiraoba {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    background-color:steelblue;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    position: relative;
+    height: 3rem;
+    font-weight: 800;
+}
+.nawilebi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    background-color:#5b932b;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    position: relative;
+    height: 3rem;
+    font-weight: 800;
+}
+.bg {
+  opacity: 0.5;
+}
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.height {
+  height: 100%;
+  align-items: center;
+  display: flex;
+}
+.header-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flexing {
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+}
+.flyout {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 5rem;
+  width: 350px;
+  border: 1px solid lightblue;
+  border-radius: 20px;
+  background-color: #fff;
+  z-index: 6;
+  overflow: hidden;
+}
+.cart-items {
+  min-height: 55px;
+  max-height: 270px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+.dropable:hover .flyout {
+  display: block;
+}
+.chatunvisible {
+  transform: translateX(200%);
+}
+.slide-right {
+  animation: slide-right .4s ease-out forwards;
+}
+.slide-left {
+  animation: slide-left .3s ease-out forwards;
+}
+@keyframes slide-right {
+  100% {
+      transform: translateX(110%) scale(.6);
+      opacity: 0;
+  }
+}
+@keyframes slide-left {
+  0% {
+      transform: translateX(110%) scale(.6);
+      opacity: 0;
+  }
+  100% {
+      transform: none;
+      opacity: 1;
+  }
+}
+

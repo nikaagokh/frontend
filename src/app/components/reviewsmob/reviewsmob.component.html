@@ -1,0 +1,42 @@
+<div class="review-container">
+    <div class="review-header">
+        <div class="header">
+            შეფასებები
+            
+            <button mat-icon-button class="turnoff" (click)="closed()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="review-body">
+        <ng-container *ngFor="let item of reviews">
+            <div class="list-item-wrapper">
+                <div class="list-item">
+                    <mat-icon class="author-icon">account_circle</mat-icon>
+                    <div class="author-wrapper-col">
+                        <div class="author-flex">
+                            <div class="author fw">{{item.user.firstName + ' ' + item.user.lastName}}</div>
+                            <div class="date fw">{{item.date}}</div>
+                        </div>
+                        <div class="review">
+                            <div *ngFor="let star of starArray">
+                                <mat-icon class="starred">
+                                  {{showIcon(star, item.rate)}}
+                                </mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item-comment fw">
+                    <mat-icon class="quotes"> format_quote</mat-icon>
+                    {{item.comment}}
+                    <mat-icon class="quotes"> format_quote</mat-icon>
+                </div>
+            </div>
+
+        </ng-container>
+    </div>
+</div>
+<div class="review-actions">
+    <button mat-raised-button color="primary" (click)="writeReview()">შეფასების დაწერა</button>
+</div>

@@ -1,0 +1,19 @@
+
+<ng-container *ngIf="loaded; else skeleton">
+    <div class="banner-container">
+        <img src="../assets/banner.jpg" class="banner-img">
+    </div>
+    <app-banner></app-banner>
+    
+    <app-slider category="ავტომანქანები" [productslice]="cars.products"></app-slider>
+    <ng-container *ngFor="let item of homeProducts">
+        <app-slider [category]="item.name" [categoryId]="item.id" [productslice]="item.product"></app-slider>
+    </ng-container>
+</ng-container>
+<ng-template #skeleton>
+    <app-skeleton [more]="true"></app-skeleton>
+</ng-template>
+
+
+
+

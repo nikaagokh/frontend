@@ -1,0 +1,169 @@
+:host {
+    display: block;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+.information-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #253988;
+    font-weight: 600;
+    margin-top: 1.25rem;
+}
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+}
+.field {
+    width: 49%;
+}
+.back {
+    color: #253988!important;
+
+}
+.desk {
+    display: none;
+}
+.about-desc {
+    color: #253988;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.categories {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.flex-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.tarea {
+    width: 100%;
+}
+.relations {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+@media (min-width:768px) {
+    
+}
+@media (min-width:992px) {
+    .back {
+        display: none;
+    }
+    .about-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .mob {
+        display: none;
+    }
+    .desk {
+        display: block;
+    }
+}
+
+.dots-image {
+    height: 4rem;
+    padding: 0 1rem;
+    width: 100%;
+  }
+  .dots-swiper {
+    height: 100%;
+    padding: 0;
+  }
+  .dots-flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .dots-wrapper {
+    width: 20%;
+    
+    border: 0.0625rem solid transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+  }
+  .dot-image {
+    height: 80%;
+    width: 80%;
+    padding: 0.5rem;
+  }
+  .bordered {
+    border: 1px solid #253988;
+    position: relative;
+  }
+  .remove {
+    position: absolute;
+    right: -0.25rem;
+    top: -0.25rem;
+    
+  }
+  .icon {
+    color: crimson!important;
+    font-size: 0.7rem!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ff {
+    width: 33%;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  .custom-file-uploader {
+    border: 1px solid #e5e7f1;
+    display: flex;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+  .w100 {
+    width: 100%;
+  }
+  .w50 {
+    width: 50%;
+  }
+  .button {
+    margin-top: 2.5rem;
+  }
+  .custom-file-uploader:hover {
+    background-color: #e5e7f1;
+  }
+  .modal-padding {
+    padding: 1.5rem;
+  }
+  .first {
+    display: flex;
+    width: 100%;
+  }
+  .w66 {
+    width: 66%;
+  }
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .delete {
+    color: crimson;
+  }

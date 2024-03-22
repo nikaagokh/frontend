@@ -1,0 +1,222 @@
+.container {
+    width: 100%;
+}
+.category-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-radius: 1rem;
+}
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+.link {
+    position: relative;
+    font-family: HelveticaNeue;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    cursor: pointer;
+}
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.active {
+    color: #646d8c;
+}
+.link:hover {
+    color:#253988;
+    opacity: 0.4;
+}
+.butt {
+    border-radius: 1rem;
+}
+.mobile-category {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5rem;
+    z-index: 2;
+    transition: all .3s ease-out;
+}
+.fixed-scrolled {
+    bottom: 0;
+}
+
+.filter-fixed {
+    position: fixed;
+    left: 0;
+    top: 150px;
+    z-index: 999;
+    cursor: pointer;
+    display: none;
+    background-color: #f7f8f9;
+    border: 2px solid #e5e7f1;
+    border-radius: 0 1rem 1rem 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.5s ease-out;
+    color: #253988;
+}
+.filter-rel {
+    padding: 0.5rem 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.filter-desc {
+    display: none;
+    transition: all 0.2s ease-out;
+}
+.filter-fixed:hover .filter-desc {
+    display: block;
+}
+.slide {
+    transform: translateX(-100%);
+}
+.full {
+    width: 100%;
+}
+.icon-sm {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+
+}
+@media (min-width:992px) {
+    .mobile-category {
+        display: none;
+    }
+    .filter-fixed {
+        display: flex;
+    }
+}
+  
+  .bcca-breadcrumb {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-shrink: 0;
+    width: fit-content;
+    margin-bottom: 15px;
+    position: relative;
+    border-radius: 4px;
+  }
+  
+
+  .bcca-breadcrumb-item {
+    transition: all 0.2s ease-in-out;
+    height: 40px;
+    background: white;
+    box-shadow: 0px 0px 18px -2px #d9d9d9;
+    line-height: 40px;
+    padding-left: 30px;
+    padding-right: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(74, 74, 74, 0.8);
+    position: relative;
+    cursor: pointer;
+    float: left;
+  }
+  
+  .bcca-breadcrumb-item:after {
+    transition: all ease-in-out 0.2s;
+    content: "";
+    position: absolute;
+    left: calc(100% - 10px);
+    top: 6px;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border: 14px solid #ffffff;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    box-shadow: 0px 0px 0 0px #d9d9d9, 5px -5px 10px -4px #d9d9d9;
+    transform: rotate(45deg);
+    margin-left: -4px;
+  }
+  
+  .bcca-breadcrumb-item:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 10px;
+  }
+  
+  .bcca-breadcrumb-item:first-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color:#f7f8f9;
+  }
+  
+  .bcca-breadcrumb-item:first-child:after {
+    content: "";
+    display: none;
+  }
+  
+  .bcca-breadcrumb-item i {
+    margin-left: 5px;
+    color: rgba(0, 0, 0, 0.2);
+  }
+  
+  /*** hover breadcrumbs ***/
+  .bcca-breadcrumb-item:hover {
+    background-color:#e5e7f1;
+    
+  }
+  
+  .bcca-breadcrumb-item:hover:after {
+    border: 14px solid #e5e7f1;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+  
+  .pagination-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+  }
+  .pagination-flex {
+    display: flex;
+    gap: 0.15rem;
+  }
+  .pad {
+    padding: 0.5rem;
+    border: 1px solid #e5e7f1;
+    background-color: white;
+    cursor: pointer;
+  }
+  .arrow {
+    color: #253988;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .number {
+    display: flex;
+    align-items: center;
+  }
+  .number:hover:not(.active) {
+    background-color: #f7f8f9;
+  }
+  
+  .active {
+    background-color: #3f51b5;
+    color:white;
+  }
+  
+  

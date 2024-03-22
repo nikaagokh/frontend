@@ -1,0 +1,77 @@
+<div class="account-container">
+
+    <div class="menu-mob">
+        <div class="list">
+            <div class="list-item" (click)="mobClicked(0)" [class.active]="active === 0" routerLink="/admin/aboutm">
+                <mat-icon>perm_identity</mat-icon>
+                პირადი ანგარიში
+            </div>
+            <div class="list-item" (click)="mobClicked(1)" [class.active]="active === 1" routerLink="/admin/passm">
+                <mat-icon>lock_open</mat-icon>
+                პაროლის ცვლილება
+            </div>
+            
+            <div class="list-item" (click)="mobClicked(2)" [class.active]="active === 3" routerLink="/admin/addm">
+                <mat-icon>library_add</mat-icon>
+                პროდუქტის დამატება
+            </div>
+            <div class="list-item" (click)="mobClicked(3)" tabindex="0" #listitem routerLink="/admin/addMinim">
+                <mat-icon>playlist_add</mat-icon>
+                კატეგორიების დამატება
+            </div>
+            <div class="list-item" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                გასვლა
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-desk" [class.hide]="active === 4">
+        
+        <div class="list" #list>
+            <div class="list-item" (click)="clicked(0)" tabindex="0" #listitem >
+                <mat-icon>perm_identity</mat-icon>
+                პირადი ანგარიში
+            </div>
+            <div class="list-item" (click)="clicked(1)" tabindex="0"  #listitem >
+                <mat-icon>lock_open</mat-icon>
+                პაროლის ცვლილება
+            </div>
+            
+            <div class="list-item" (click)="clicked(2)"  tabindex="0" #listitem >
+                <mat-icon>playlist_add</mat-icon>
+                პროდუქტის დამატება
+            </div>
+            
+            <div class="list-item" (click)="clicked(3)" tabindex="0" #listitem routerLink="/admin/addMini">
+                <mat-icon>playlist_add</mat-icon>
+                კატეგორიების დამატება
+            </div>
+            <div class="list-item" (click)="logout()" [class.hovered]="hovered === 5" tabindex="0" #listitem>
+                <mat-icon>exit_to_app</mat-icon>
+                გასვლა
+            </div>
+        </div>
+        
+
+    
+    </div>
+    <div class="content-container-desktop">
+        <!--
+        <app-about *ngIf="active === 0"></app-about>
+        <app-password *ngIf="active === 1"></app-password>
+        <app-favorites *ngIf="active === 2"></app-favorites>
+        <app-cart *ngIf="active === 3"></app-cart>
+        <app-add *ngIf="active === 4"></app-add>
+        <app-edit *ngIf="active === 5"></app-edit>
+        -->
+        <router-outlet></router-outlet>
+    </div>
+    <div class="content-container-mob">
+        <app-about *ngIf="active === 0"></app-about>
+        <app-password *ngIf="active === 1"></app-password>
+        <app-add *ngIf="active === 2"></app-add>
+        <app-category *ngIf="active === 3"></app-category>
+    </div>
+</div>
+

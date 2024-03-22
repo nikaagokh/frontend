@@ -1,0 +1,55 @@
+<div class="reviews-container">
+    <div class="reviews">
+      პროდუქტის შეფასებები
+    </div>
+    <div class="all" *ngIf="comments.length === 3" (click)="openReviews()">
+        ყველას ნახვა
+    </div>
+  </div>
+<div class="review-cont">
+    <ng-container *ngIf="comments.length > 0; else temp">
+        <ng-container *ngFor="let item of comments; index as i">
+            <div class="list-item-wrapper" [class.last]="comments.length === i+1">
+                <div class="list-item">
+                    <mat-icon class="author-icon">account_circle</mat-icon>
+                    <div class="author-wrapper-col">
+                        <div class="author-flex">
+                            <div class="date fw">{{item.date}}</div>
+                        </div>
+                        <div class="review">
+                            <div *ngFor="let star of starArray">
+                                <mat-icon class="starred">
+                                  {{showIcon(star, item.rate)}}
+                                </mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item-comment fw">
+                    <mat-icon class="quotes"> format_quote</mat-icon>
+                    {{item.comment}}
+                    <mat-icon class="quotes"> format_quote</mat-icon>
+                </div>
+            </div>
+        
+        </ng-container>
+    </ng-container>
+    <ng-template #temp>
+        <div class="empty-review">
+            <div class="img-flex">
+                <img src="../../../assets/reviews.png" class="empty-img">
+        
+            </div>
+            <div class="message-wrapper">
+                <div class="message">შეფასებები ვერ მოიძებნა!</div>
+                
+            </div>
+        </div>
+</ng-template>
+<div class="see-all-wrapper">
+    <div class="see-all-flex" (click)="writeReview()">
+        <div>დატოვეთ შეფასება</div>
+        <mat-icon class="see-all-icon">keyboard_arrow_right</mat-icon>
+    </div>
+  </div>
+</div>

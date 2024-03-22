@@ -1,0 +1,33 @@
+
+<div class="sub-container">
+    <div class="header-sub">
+        <div class="header">
+            <button mat-icon-button class="back" (click)="back()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            ქვეკატეგორია
+            <button mat-icon-button class="turnoff" (click)="close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="sub-body">
+        <mat-nav-list class="list">
+            <ng-container *ngFor="let item of submenu">
+                <ng-container *ngFor="let year of item.cyear">
+                    <mat-list-item (click)="categoryChanged(year.id, item.id)">
+                        <img matListItemAvatar src="{{url}}{{year.imageUrl}}">
+                        <h3 matListItemTitle>{{item.name}}</h3>
+                        <h2 matListItemLine>{{year.range}}წ</h2>
+                        
+                    </mat-list-item>
+                    <mat-divider [inset]="true"></mat-divider>
+                </ng-container>
+                
+            </ng-container>
+            
+        </mat-nav-list>
+    </div>
+</div>
+

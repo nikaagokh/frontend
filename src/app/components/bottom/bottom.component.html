@@ -1,0 +1,24 @@
+<div (click)="routerLink()" class="bottom">
+    <mat-icon>home</mat-icon>
+    მთავარი
+</div>
+<div (click)="menuOpen()" class="bottom" >
+    <mat-icon>menu</mat-icon>
+    კატალოგი
+</div>
+<div (click)="searchOpen()" class="bottom outside">
+    <mat-icon class="outside">search</mat-icon>
+    ძებნა
+
+</div>
+<div (click)="cartOpen()" class="bottom">
+    <mat-icon [matBadge]="cartNumber > 0 ? cartNumber : ''" matBadgeSize="small">card_travel</mat-icon>
+            კალათა
+</div>
+
+<div (click)="authOpen()" class="bottom">
+    <mat-icon>perm_identity</mat-icon>
+    ანგარიში
+</div>
+
+

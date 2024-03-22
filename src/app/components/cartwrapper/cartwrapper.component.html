@@ -1,0 +1,78 @@
+<div class="cart-container">
+    <ng-container *ngIf="cartArray.length > 0; else temp">
+      <ng-container *ngFor="let item of cartArray; last as isLast; index as i">
+  
+          <div class="cart-item">
+              <div class="img-wrapper" (click)="zoomImage(item.images[0]?.path)">
+                  <img src="{{url}}{{item.images[0]?.path}}" class="img">
+              </div>
+              <div class="description-wrapper">
+                  <div class="description">{{item.nameGeo}}</div>
+                  <div class="code"></div>
+              </div>
+              <div class="remove-wrapper md" (click)="removeItem(item)">
+                  <mat-icon class="delete">delete</mat-icon>
+              </div>
+              <div class="action-wrapper">
+                  <div class="action-flex">
+                      <div class="add-remove-flex">
+                          <div class="remove-wrapper sm" (click)="removeItem(item)">
+                              <mat-icon class="delete">delete</mat-icon>
+                          </div>
+                          <div class="add-wrapper">
+                              
+                                  <button mat-button class="minus-button" (click)="minus(item)">
+                                      <span class="add">-</span>
+                                  </button>
+                                  <div class="number-button">
+                                      <div class="numb">
+                                          {{item.quantity}} შეკვრა
+                                      </div>
+                                  </div>
+                                  <button mat-button class="plus-button" (click)="plus(item)">
+                                      <span class="add">+</span>
+                                  </button>
+                      
+                              
+                          </div>
+                      </div>
+                      <div class="price-wrapper">
+                          <div class="price-flex">
+                              <span class="price">
+                                  {{item.price | price}}
+                                  <sup class="subprice">
+                                      .00
+                                  </sup>
+                              </span>
+                              <span class="price-gel">
+                                  ₾.
+                              </span>
+                          </div>
+                          <div class="oldpric">
+                              <span class="price old">
+                                  {{oldPrice(item.price, item.discount)}} 
+                              </span>
+                              <span class="price-gel">
+                                  ₾.
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <mat-divider></mat-divider>
+      </ng-container>
+  </ng-container>
+      <ng-template #temp>
+          <div class="empty-cart">
+              <div class="img-flex">
+                  <img src="../../../assets/empty-cart.png" class="empty-img">
+          
+              </div>
+              <div class="message-wrapper">
+                  <div class="message">თქვენი კალათა ცარიელია !</div>
+                  
+              </div>
+          </div>
+      </ng-template>
+</div>

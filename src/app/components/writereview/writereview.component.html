@@ -1,0 +1,62 @@
+<div class="review-container" [class.mob]="mobsize">
+    <div class="review-header">
+        
+        <div class="header">
+            <button mat-icon-button matTooltip="უკან დაბრუნება" (click)="back()">
+                <mat-icon class="icon">arrow_back</mat-icon>
+            </button>
+            <span class="header-title">შეფასება</span>
+            <button mat-icon-button matTooltip="დახურვა" (click)="close()">
+                <mat-icon class="icon">close</mat-icon>
+            </button>
+        </div>
+       
+    </div>
+
+    <div class="toaster slide-down" *ngIf="toaster" [class.error]="error">
+        <div class="toaster-message">
+            <button mat-icon-button *ngIf="!error">
+                <mat-icon>info</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="error">
+                <mat-icon>warning</mat-icon>
+            </button>
+            <div class="toaster-content" *ngIf="!error">
+                პროდუქტის შესაფასებლად, აუცილებელია, რომ დაწეროთ კომენტარიც და შეფასებაც !
+            </div>
+            <div class="toaster-content" *ngIf="error">
+                თითო პროდუქტზე ერთი შეფასების დაწერა შეგიძლიათ!
+            </div>
+            
+            <div (click)="toaster=false">
+                <mat-icon class="close-sm">close</mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="stars">
+        <div class="review">
+            <div *ngFor="let star of starArray" (click)="stars(star)">
+                <mat-icon class="starred">
+                  {{showIcon(star)}}
+                </mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment">
+        <mat-form-field appearance="outline" class="textarea">
+            <textarea matInput placeholder="დაწერეთ შეფასება" [formControl]="txtAreafc"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="actions">
+        <button mat-raised-button class="button lightgray" (click)="close()">
+            გაუქმება
+        </button>
+        <button mat-raised-button color="primary" class="button" (click)="submit()">
+            დადასტურება
+        </button>
+    </div>
+</div>
+    

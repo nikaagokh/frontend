@@ -1,0 +1,25 @@
+<div class="overlay-container" *ngIf="loaded">
+    <div class="messages-container">
+        <mat-list class="list">
+            <ng-container *ngFor="let item of conversations; last as isLast; index as i">
+                <mat-list-item class="list-item" (click)="changeConversation(i)" [class.active]="active === i">
+                    <mat-icon matListItemIcon class="user-icon" [matBadge]="getIfSeen(item)">account_circle</mat-icon>
+                    <h3 matListItemTitle>{{item.person}}</h3>
+                    <span matListItemLine>{{getUser(item?.sent)}} {{item?.message}}</span>
+                    
+                    <div matListItemMeta>
+                        {{item.last}}
+                        <div class="time-flex">{{item.lastTime}}</div>
+                        
+                    </div>
+                   
+                </mat-list-item>
+                <mat-divider *ngIf="!isLast"></mat-divider>
+            </ng-container>
+        </mat-list>
+    </div>
+     
+        <app-messages [conversationId]="conversations[active].id" [personId]="conversations[active].personId" (messageChanged)="messageChange($event)"></app-messages>
+    
+    
+</div>

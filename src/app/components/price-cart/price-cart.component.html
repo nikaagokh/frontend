@@ -1,0 +1,39 @@
+<div class="price-container" *ngIf="price.newPrice > 0">
+    <div class="price-wrapper">
+        <div class="price-flex">
+            <div class="price">
+                კალათის ღირებულება: 
+                <span>{{price.oldPrice.toFixed(2)}} ₾</span>
+            </div>
+            <div class="price sale">
+                ფასდაკლება: 
+                <span>-{{(price.oldPrice - price.newPrice).toFixed(2)}} ₾</span>
+            </div>
+            
+            <div class="price total">
+                საბოლოო ღირებულება:
+                <span>{{price.newPrice.toFixed(2)}} ₾</span>
+            </div>
+        </div>
+        <div class="delivery">
+            <mat-icon class="icon-delivery">local_shipping</mat-icon>
+            მიტანა | 15₾
+        </div>
+        <div class="delivery">
+            <mat-icon> phone</mat-icon>
+            558 121-999
+        </div>
+
+        <div class="button-actions"> 
+           <button mat-button class="actions category" routerLink="/">უკან</button>
+           <button mat-button class="buy-button actions" (click)="buy()">
+            ყიდვა
+           </button>
+       
+  
+
+
+</div>
+    </div>
+</div>
+
